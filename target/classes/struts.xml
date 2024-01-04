@@ -66,8 +66,8 @@
 			<result name="success">/WEB-INF/admin/home.jsp</result>
 		</action>
 		
-		<action name="*FoodAction" class="Action.FoodAction"
-			method="{1}">
+		<!--FoodAction -->
+		<action name="*FoodAction" class="Action.FoodAction" method="{1}">
 			<interceptor-ref name="fileUpload" />
 			<interceptor-ref name="basicStack" />
 
@@ -84,13 +84,12 @@
 			<interceptor-ref name="workflow" />
 
 			<result name="error">/WEB-INF/error.jsp</result>
-			<result name="login">/WEB-INF/login.jsp</result>
-			<result name="success">/WEB-INF/admin/food/{1}.jsp</result>
+			<!-- <result name="login">/WEB-INF/login.jsp</result>
+			<result name="success">/WEB-INF/admin/food/{1}.jsp</result> -->
 			<result name="list" type="chain">listFoodAction</result>
 			<result name="input">/WEB-INF/admin/food/{1}.jsp</result>
 
 		</action>
-		
 		
 		
 		<!-- homeKhachAction -->
