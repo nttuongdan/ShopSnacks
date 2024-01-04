@@ -14,10 +14,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import DAO.FoodDAO;
 import Model.Food;
 
-public class FoodAction extends ActionSupport implements SessionAware  {
-	
+public class FoodAction extends ActionSupport implements SessionAware {
+
 	private Map<String, Object> session;
-	
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -25,9 +25,9 @@ public class FoodAction extends ActionSupport implements SessionAware  {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-	
+
 	private List<Food> foodlist;
-	
+
 	public List<Food> getFoodlist() {
 		return foodlist;
 	}
@@ -102,85 +102,72 @@ public class FoodAction extends ActionSupport implements SessionAware  {
 	private int id;
 	private Food food;
 
-	//luu y: tao getter và setter cho các thuộc tính
+	// luu y: tao getter và setter cho các thuộc tính
 
-
-	public String list()
-	{
-		foodlist=new FoodDAO().getList();
-		return SUCCESS;
-	}
-	
-	public String create()
-	{		
+	public String list() {
+		foodlist = new FoodDAO().getList();
 		return SUCCESS;
 	}
 
-	public String store()
-	{
+	public String create() {
+		return SUCCESS;
+	}
+
+	public String store() {
 		String path = ServletActionContext.getServletContext().getRealPath("./img");
-		//System.out.println("Image Location:" + path);
-		//System.out.println(hinhFileName);
-		 if(hinhFileName!=null)
-		 {
+		// System.out.println("Image Location:" + path);
+		// System.out.println(hinhFileName);
+		if (hinhFileName != null) {
 			// handling the file
 			File file = new File(path, hinhFileName);
-			
+
 			try {
-				
+
 				FileUtils.copyFile(hinh, file);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		 }
-		new FoodDAO().store(tenmonan,hinhFileName,gia);
-		
+		}
+		new FoodDAO().store(tenmonan, hinhFileName, gia);
+
 		return "list";
 	}
 
-	public String edit()
-	{
-		food=new FoodDAO().getFoodByID(id);
+	public String edit() {
+		food = new FoodDAO().getFoodByID(id);
 		return SUCCESS;
 	}
-	
-	public String update()
-	{
+
+	public String update() {
 		String path = ServletActionContext.getServletContext().getRealPath("./img");
-		//System.out.println("Image Location:" + path);
-		//System.out.println(hinhFileName);
-		 if(hinhFileName!=null)
-		 {
+		// System.out.println("Image Location:" + path);
+		// System.out.println(hinhFileName);
+		if (hinhFileName != null) {
 			// handling the file
 			File file = new File(path, hinhFileName);
-			
+
 			try {
-				
+
 				FileUtils.copyFile(hinh, file);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-		 }
-		 else
-		 {
-			 food=new FoodDAO().getFoodByID(id);
-			 hinhFileName=food.getHinh();
-		 }
-		 
+
+		} else {
+			food = new FoodDAO().getFoodByID(id);
+			hinhFileName = food.getHinh();
+		}
+
 		new FoodDAO().update(id, tenmonan, hinhFileName, gia);
-		
-		
+
 		return "list";
 	}
-	
-	public String delete()
-	{
+
+	public String delete() {
 		new FoodDAO().delete(id);
 		return "list";
 	}
 
-	
 }
