@@ -27,17 +27,18 @@
 				<interceptor-ref name="roleBasedIntercetor" />
 			</interceptor-stack>
 
-
 		</interceptors>
 
 
 
-		<action name="">
-			<interceptor-ref name="authenticatedInterceptor" />
-			<result name="login">/WEB-INF/login.jsp</result>
-			<result name="admin" type="redirect">homeAdminAction</result>
-			<result name="khach" type="redirect">homeKhachAction</result>
+		<action name="" class="Action.TrangchuAction" method="home">
+			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
+		
+		<action name="homepage" class="Action.TrangchuAction" method="home">
+			<result name="success">/WEB-INF/index.jsp</result>
+		</action>
+		
 		<action name="login">
 			<interceptor-ref name="authenticatedInterceptor" />
 			<result name="login">/WEB-INF/login.jsp</result>
@@ -82,7 +83,7 @@
 			</interceptor-ref>
 
 			<interceptor-ref name="validation">
-				<param name="excludeMethods">list,edit,delete,create</param>
+				<param name="excludeMethods">list,create,edit,delete</param>
 			</interceptor-ref>
 			<interceptor-ref name="workflow" />
 
@@ -91,9 +92,7 @@
 			<result name="success">/WEB-INF/admin/food/{1}.jsp</result>
 			<result name="list" type="chain">listFoodAction</result>
 			<result name="input">/WEB-INF/admin/food/{1}.jsp</result>
-
 		</action>
-
 
 
 		<!-- homeKhachAction -->
