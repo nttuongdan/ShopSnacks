@@ -11,17 +11,8 @@ import Model.NguoiDung;
 
 public class LoginAction extends ActionSupport implements SessionAware {
 	String tendangnhap,matkhau;
-	String addActionMessage= "";
 	Map<String, Object> session;
 	
-	public String getErrorMessage() {
-		return addActionMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.addActionMessage = errorMessage;
-	}
-
 	public Map<String, Object> getSession() {
 		return session;
 	}

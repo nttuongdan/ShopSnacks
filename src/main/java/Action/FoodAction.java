@@ -115,8 +115,8 @@ public class FoodAction extends ActionSupport implements SessionAware {
 
 	public String store() {
 		String path = ServletActionContext.getServletContext().getRealPath("./img");
-		// System.out.println("Image Location:" + path);
-		// System.out.println(hinhFileName);
+//		 System.out.println("Image Location:" + path);
+//		 System.out.println(hinhFileName);
 		if (hinhFileName != null) {
 			// handling the file
 			File file = new File(path, hinhFileName);
@@ -126,7 +126,9 @@ public class FoodAction extends ActionSupport implements SessionAware {
 				FileUtils.copyFile(hinh, file);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				 System.out.println(hinhFileName);
+
+//				e.printStackTrace();
 			}
 		}
 		new FoodDAO().store(tenmonan, hinhFileName, gia);
