@@ -1,15 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Home Admin</title>
+<jsp:include page="layouts/head.jsp"></jsp:include>
 </head>
 <body>
-	<a href="listFoodAction" >Quản lý món ăn</a>
-	<a href="" >Quản lý người dùng</a>
-	<a href="" >Quản lý đặt món</a>
+	<div class="container-scroller">
+		<jsp:include page="layouts/navbar.jsp"></jsp:include>
+		<!-- partial -->
+		<div class="container-fluid page-body-wrapper">
+			<jsp:include page="layouts/sidebar.jsp"></jsp:include>
+			<!-- partial -->
+			<div class="main-panel">
+				<div class="content-wrapper" id="content">
+				</div>
+				<jsp:include page="layouts/footer.jsp"></jsp:include>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
