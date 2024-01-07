@@ -39,6 +39,9 @@
 
 			</div>
 		</main>
+		<aside class="position-fixed top-0 start-0 p-3">
+			<a href="logout.jsp" class="btn btn-danger">Đăng xuất</a>
+		</aside>
 		
 		<jsp:include page="footer.jsp"></jsp:include>
 		
