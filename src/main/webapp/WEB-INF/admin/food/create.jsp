@@ -45,7 +45,7 @@
 										</div>
 
 										<button type="submit" class="btn btn-primary me-2">Thêm</button>
-										<button class="btn btn-light">Cancel</button>
+										<a href="listFoodAction" class="btn btn-light">Hủy</a>
 									</form>
 									
 								</div>
