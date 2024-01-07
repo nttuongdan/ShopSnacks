@@ -39,6 +39,14 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 
 		return "success";
 	}
+<<<<<<< HEAD
+	public String blog() {
+		return "success";
+	}
+	public String call() {
+		return "success";
+	}
+=======
 
 //	private List<>
 //	
@@ -46,4 +54,5 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 //	{
 //		
 //	}
+>>>>>>> 7dfe8dbedaf4df4c6e82415d6f069d5bdd97cd9d
 }

@@ -18,10 +18,10 @@
 					class="nav-link active fw-bold text-danger" aria-current="page"
 					href="homepage">Trang chủ</a></li>
 				<li class="nav-item"><a class="nav-link fw-bold text-success"
-					href="#">Blog</a></li>
+					href="blog">Blog</a></li>
 
 				<li class="nav-item"><a class="nav-link fw-bold text-info"
-					href="#">Liên hệ</a></li>
+					href="call">Liên hệ</a></li>
 
 			</ul>
 			<form class="d-flex" role="search">
