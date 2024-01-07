@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Food;
+import Model.DonHang;
 
 public class DonHangDAO {
 
@@ -25,7 +25,7 @@ public class DonHangDAO {
 		}
 		return selectLast();
 	}
-	
+
 	public int selectLast() {
 		DBService db = new DBService();
 		PreparedStatement statement;

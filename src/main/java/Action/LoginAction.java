@@ -10,7 +10,7 @@ import DAO.UserDAO;
 import Model.NguoiDung;
 
 public class LoginAction extends ActionSupport implements SessionAware {
-	String tendangnhap,matkhau;
+	String tendangnhap, matkhau;
 	Map<String, Object> session;
 
 	public Map<String, Object> getSession() {
@@ -37,20 +37,39 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
 	public String login() {
 		NguoiDung nd = new UserDAO().login(tendangnhap, matkhau);
 		if (nd != null) {
 			session.put("nguoidung", nd);
+//			NguoiDung nd1 = (NguoiDung) session.get("nguoidung");
+
 			System.out.println("Login success");
 			if (nd.getLoaiquyen().equals("admin")) {
 				return "admin";
 			} else
 				return "khach";
 		} else {
-			addActionMessage("Bạn nhập sai tên đăng nhập hoặc mật khẩu!");
+			// If login fails, add field-specific error messages
+			if (tendangnhap == null || tendangnhap.trim().isEmpty()) {
+				addFieldError("tendangnhap", "Tên đăng nhập không được để trống");
+			}
+			if (matkhau == null || matkhau.trim().isEmpty()) {
+				addFieldError("matkhau", "Mật khẩu không được để trống");
+			}
+			addActionError("Bạn nhập sai tên đăng nhập hoặc mật khẩu!");
 			System.out.println("Login fail");
-			return "login";
+			return "loginfail";
 		}
 	}
 
+	public String logout() {
+		NguoiDung nd = (NguoiDung) session.get("nguoidung");
+		if (nd.getLoaiquyen().equals("admin")) {
+			session.clear();
+			return "admin";
+		}
+		session.clear();
+		return "khach";
+	}
 }

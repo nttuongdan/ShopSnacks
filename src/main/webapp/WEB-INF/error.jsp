@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 <title>Lỗi</title>
 </head>
 <body>
-<h1>Có lỗi xảy ra</h1>
-<a href="javascript:history.back()">Quay lại</a>
+	<h1>Có lỗi xảy ra</h1>
+	<a href="javascript:history.back()">Quay lại</a>
 </body>
 </html>

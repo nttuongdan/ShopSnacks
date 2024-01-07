@@ -85,6 +85,51 @@ public class TaiKhoanAction extends ActionSupport implements SessionAware {
 		this.loaitaikhoan = loaitaikhoan;
 	}
 
+	public TaiKhoan getTaikhoan() {
+		return taikhoan;
+	}
+
+	public void setTaikhoan(TaiKhoan taikhoan) {
+		this.taikhoan = taikhoan;
+	}
+
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
+
+	public String getKhach() {
+		return khach;
+	}
+
+	public void setKhach(String khach) {
+		this.khach = khach;
+	}
+
+	public String getMatkhaucu() {
+		return matkhaucu;
+	}
+
+	public void setMatkhaucu(String matkhaucu) {
+		this.matkhaucu = matkhaucu;
+	}
+
+	public String getMatkhaumoi() {
+		return matkhaumoi;
+	}
+
+	public void setMatkhaumoi(String matkhaumoi) {
+		this.matkhaumoi = matkhaumoi;
+	}
+
+	private String matkhaucu, matkhaumoi;
+
+	private String admin, khach;
+
+	private TaiKhoan taikhoan;
 	private List<TaiKhoan> listTaiKhoan;
 	private int id;
 	private String tennguoidung, tendangnhap, matkhau, loaitaikhoan;
@@ -100,10 +145,29 @@ public class TaiKhoanAction extends ActionSupport implements SessionAware {
 
 	public String store() {
 
-		if (matkhau.compareTo(xacnhanmatkhau) == 0) {//0 : đúng 
+		if (matkhau.compareTo(xacnhanmatkhau) == 0) {// 0 : đúng
 			new TaiKhoanDAO().store(tennguoidung, tendangnhap, matkhau, loaitaikhoan);
 		}
 
+		return "list";
+	}
+
+	public String edit() {
+		taikhoan = new TaiKhoanDAO().getTaiKhoanByID(id);
+		if (taikhoan.getLoaitaikhoan().compareTo("admin") == 0)
+			admin = "selected";
+		else
+			khach = "selected";
+		return "success";
+	}
+
+	public String update() {
+		if ((new TaiKhoanDAO().getMatKhau(id, matkhaucu)) == true && matkhaumoi.compareTo(xacnhanmatkhau) == 0) {
+			new TaiKhoanDAO().update(id, tennguoidung, tendangnhap, matkhaumoi, loaitaikhoan);
+			System.out.print(123);
+		} else {
+			new TaiKhoanDAO().update(id, tennguoidung, tendangnhap, null, loaitaikhoan);
+		}
 		return "list";
 	}
 

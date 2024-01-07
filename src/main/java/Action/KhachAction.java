@@ -138,6 +138,16 @@ public class KhachAction extends ActionSupport implements SessionAware {
 
 	private List<Food> foodlist;
 
+	public Food getFood() {
+		return food;
+	}
+
+	public void setFood(Food food) {
+		this.food = food;
+	}
+
+	private Food food;
+	
 	int id;
 	DonHang donhang;
 	List<DonHangChiTiet> donhangchitiet = new ArrayList<DonHangChiTiet>();
@@ -149,6 +159,12 @@ public class KhachAction extends ActionSupport implements SessionAware {
 //		foodlist = new FoodDAO().getList();
 		return "success";
 	}
+	
+//	public String SnackMoTa()
+//	{
+//		food = new FoodDAO().getFoodByID(id);
+//		return "success";
+//	}
 
 	public String ThemGioHang() {
 
@@ -183,6 +199,7 @@ public class KhachAction extends ActionSupport implements SessionAware {
 
 		return SUCCESS;
 	}
+
 
 	public String ThanhToanGioHang() {
 		// lấy người dùng hiện tại
