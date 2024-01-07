@@ -39,6 +39,15 @@
 			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
 		
+		<action name="blog" class="Action.TrangchuAction" method="blog">
+			<result name="success">/WEB-INF/blog.jsp</result>
+		</action>
+			<action name="call" class="Action.TrangchuAction" method="call">
+			<result name="success">/WEB-INF/call.jsp</result>
+		</action>
+		
+
+		
 		<action name="login">
 			<interceptor-ref name="authenticatedInterceptor" />
 			<result name="login">/WEB-INF/login.jsp</result>

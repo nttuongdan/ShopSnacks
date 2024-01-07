@@ -23,4 +23,10 @@ public class TrangchuAction extends ActionSupport {
 		foodlist = new TrangchuDAO().getList();
 		return "success";
 	}
+	public String blog() {
+		return "success";
+	}
+	public String call() {
+		return "success";
+	}
 }
