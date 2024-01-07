@@ -38,6 +38,9 @@
 		<action name="homepage" class="Action.TrangchuAction" method="home">
 			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
+		<action name="giohang" class="Action.TrangchuAction" method="home">
+			<result name="success">/WEB-INF/khach/giohang.jsp</result>
+		</action>
 		
 		<action name="login">
 			<interceptor-ref name="authenticatedInterceptor" />
@@ -56,12 +59,12 @@
 			<result name="khach" type="redirect">homeKhachAction</result>
 		</action>
 		
-		<!-- logoutUser -->
+		<!-- logoutUser
 		<action name="logoutUser" class="Action.LogoutAction"
 			method="logout">
 			<result name="admin" type="redirect">homeAdminAction</result>
 			<result name="khach" type="redirect">homeKhachAction</result>
-		</action>
+		</action> -->
 		
 		<!--  RegisterUser 
        <action name="register" class="Action.RegisterAction" method="register">

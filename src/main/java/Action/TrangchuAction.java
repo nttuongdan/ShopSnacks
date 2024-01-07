@@ -23,4 +23,8 @@ public class TrangchuAction extends ActionSupport {
 		foodlist = new TrangchuDAO().getList();
 		return "success";
 	}
+	public String giohang() {
+		
+		return "success";
+	}
 }

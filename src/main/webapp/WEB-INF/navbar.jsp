@@ -34,7 +34,7 @@
 		<div class="me-5">
 			<a class="text-decoration-none text-secondary" href="#"><i
 				class="bi bi-person-bounding-box"></i> Khách hàng</a> <a href="login"
-				class="btn btn-primary">Đăng nhập</a> <a href="#"
+				class="btn btn-primary">Đăng nhập</a> <a href="giohang"
 				class="btn btn-warning"><i class="bi bi-bag"></i></a>
 		</div>
 	</div>
