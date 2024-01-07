@@ -26,7 +26,6 @@
 <!-- inject:css -->
 <link rel="stylesheet"
 	href="./assets/css/vertical-layout-light/style.css">
-
 <jsp:include page="head.jsp"></jsp:include>
 
 </head>
@@ -61,6 +60,13 @@
 												class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
 												type="submit">ĐĂNG NHẬP</button>
 										</div>
+
+										 <!-- Display error message if login fails -->
+										<s:if test="hasActionErrors()">
+											<div style="color: red;">
+												<s:actionerror />
+											</div>
+										</s:if> 
 										<div
 											class="my-2 d-flex justify-content-between align-items-center">
 											<div class="form-check">
@@ -95,6 +101,7 @@
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
+	>>>>>>> af129b3cd6fa94b791bbce7f5ffbf171ed8d3558
 	<!-- container-scroller -->
 	<!-- plugins:js -->
 	<script src="./assets/vendors/js/vendor.bundle.base.js"></script>

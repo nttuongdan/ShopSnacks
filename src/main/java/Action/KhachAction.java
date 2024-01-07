@@ -15,6 +15,7 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	List<Food> foodlist;
 	private int idmonan;
 	Map<String, Object> session;
+
 	public int getSoluong() {
 		return soluong;
 	}
@@ -43,7 +44,7 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	private int soluong;
 	private int gia;
 	private int thanhtien;
-	
+
 	public int getIdmonan() {
 		return idmonan;
 	}
@@ -60,9 +61,6 @@ public class KhachAction extends ActionSupport implements SessionAware {
 		this.food = food;
 	}
 
-	
-	
-
 	public List<Food> getFoodlist() {
 		return foodlist;
 	}
@@ -70,22 +68,23 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	public void setFoodlist(List<Food> foodlist) {
 		this.foodlist = foodlist;
 	}
-	
+
 	public String home() {
 		System.out.println("welcome Khach action");
-		foodlist=new FoodDAO().getList();
+		foodlist = new FoodDAO().getList();
 		return "success";
 	}
-	
+
 	public String order() {
-		food  = new FoodDAO().getFoodByID(idmonan);
+		food = new FoodDAO().getFoodByID(idmonan);
 		return SUCCESS;
 	}
-	public String submitOrder() { 
-		NguoiDung nd= (NguoiDung) session.get("nguoidung");
+
+	public String submitOrder() {
+		NguoiDung nd = (NguoiDung) session.get("nguoidung");
 		new FoodDAO().Order(nd.getId(), idmonan, soluong, gia, thanhtien);
 		return SUCCESS;
-    }
+	}
 
 	public Map<String, Object> getSession() {
 		return session;
@@ -94,7 +93,5 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-	
 
 }

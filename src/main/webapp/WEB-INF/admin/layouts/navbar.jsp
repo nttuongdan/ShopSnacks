@@ -197,10 +197,12 @@
 						class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
 						Activity</a> <a class="dropdown-item"><i
 						class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
-						FAQ</a> <a class="dropdown-item"><i
-						class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign
-						Out</a>
-				</div></li>
+						FAQ</a> 
+						<form action="loginUser" method="POST" class="pt-3">
+						<a class="dropdown-item"><i
+						class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+				</div> </form>
+				</li>
 		</ul>
 		<button
 			class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"

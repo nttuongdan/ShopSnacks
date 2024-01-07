@@ -55,7 +55,20 @@
 			<result name="admin" type="redirect">homeAdminAction</result>
 			<result name="khach" type="redirect">homeKhachAction</result>
 		</action>
-
+		
+		<!-- logoutUser -->
+		<action name="logoutUser" class="Action.LogoutAction"
+			method="logout">
+			<result name="admin" type="redirect">homeAdminAction</result>
+			<result name="khach" type="redirect">homeKhachAction</result>
+		</action>
+		
+		<!--  RegisterUser 
+       <action name="register" class="Action.RegisterAction" method="register">
+            <result name="success">/registration-success.jsp</result>
+            <result name="input">/register.jsp</result>
+        </action> -->
+    
 
 		<!-- homeAdminAction -->
 		<action name="homeAdminAction" class="Action.AdminAction"
@@ -69,9 +82,10 @@
 			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="success">/WEB-INF/admin/home.jsp</result>
 		</action>
+		
+		<!--FoodAction -->
+		<action name="*FoodAction" class="Action.FoodAction" method="{1}">
 
-		<action name="*FoodAction" class="Action.FoodAction"
-			method="{1}">
 			<interceptor-ref name="fileUpload" />
 			<interceptor-ref name="basicStack" />
 
@@ -93,8 +107,7 @@
 			<result name="list" type="chain">listFoodAction</result>
 			<result name="input">/WEB-INF/admin/food/{1}.jsp</result>
 		</action>
-
-
+		
 		<!-- homeKhachAction -->
 		<action name="homeKhachAction" class="Action.KhachAction"
 			method="home">
