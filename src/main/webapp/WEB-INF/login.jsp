@@ -61,12 +61,12 @@
 												type="submit">ĐĂNG NHẬP</button>
 										</div>
 
-										<%-- <!-- Display error message if login fails -->
+										 <!-- Display error message if login fails -->
 										<s:if test="hasActionErrors()">
 											<div style="color: red;">
 												<s:actionerror />
 											</div>
-										</s:if> --%>
+										</s:if> 
 										<div
 											class="my-2 d-flex justify-content-between align-items-center">
 											<div class="form-check">

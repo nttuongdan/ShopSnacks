@@ -56,12 +56,18 @@
 			<result name="khach" type="redirect">homeKhachAction</result>
 		</action>
 		
-		<!-- RegisterUser -->
-        <action name="register" class="your.package.RegisterAction">
-            <result name="admin">/admin.jsp</result>
-            <result name="user">/user.jsp</result>
-            <result>/registration-success.jsp</result>
-        </action>
+		<!-- logoutUser -->
+		<action name="logoutUser" class="Action.LogoutAction"
+			method="logout">
+			<result name="admin" type="redirect">homeAdminAction</result>
+			<result name="khach" type="redirect">homeKhachAction</result>
+		</action>
+		
+		<!--  RegisterUser 
+       <action name="register" class="Action.RegisterAction" method="register">
+            <result name="success">/registration-success.jsp</result>
+            <result name="input">/register.jsp</result>
+        </action> -->
     
 
 		<!-- homeAdminAction -->
