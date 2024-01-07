@@ -49,7 +49,7 @@
 								<span class="fa fa-star"></span>
 								<span class="fa fa-star"></span>
 							</div>
-							<span class="review-no">41 đánh giá</span>
+							
 						</div>
 						<p class="product-description">"Thưởng thức hương vị tuyệt vời của snacks - sự hòa quyện hoàn hảo giữa thơm ngon và sự ngon miệng! Mua ngay để trải nghiệm niềm vui nhẹ nhàng trong mỗi hạt snack."</p>
 						<h4 class="price text-danger">Giá tiền: <span><s:property value="food.gia"/><small>đ</small></span></h4>
@@ -62,9 +62,12 @@
 						<br>
 						<div class="action">
 							<button class="add-to-cart btn btn-warning" type="button">
-  <i class="bi bi-bag"></i> Thêm vào vỏ hàng
-</button>
-							<button class="add-to-cart btn btn-default" type="button">Mua ngay</button>
+  								<i class="bi bi-bag"></i> Thêm vào vỏ hàng
+							</button>
+							<button class="add-to-cart btn btn-default" type="button">
+  								<i class="bi bi-heart"></i> Yêu thích
+							</button>
+
 							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
 						</div>
 					</div>

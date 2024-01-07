@@ -25,7 +25,7 @@
 		<tr>
 			<td><s:property value="ten"/></td>
 			<td><img width='80' src=' ./img/<s:property value="hinh"/>'/></td>
-			<td><a href='orderAction?idmonan=<s:property value="id"/>'>Xemve</a></td>
+			<td><a href='orderAction?idmonan=<s:property value="id"/>'>Đặt Món</a></td>
 		</tr>
 		</s:iterator>		
 	</table>
