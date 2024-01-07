@@ -20,7 +20,8 @@ public class UserDAO {
 			ResultSet rs = db.executeQuery(statement);
 			if (rs != null) {
 				while (rs.next()) {
-					nd = new NguoiDung(rs.getInt("id"), rs.getString("tendangnhap"), rs.getString("loaiquyen"));
+					nd = new NguoiDung(rs.getInt("id"), rs.getString("tennguoidung"), rs.getString("tendangnhap"),
+							rs.getString("loaiquyen"));
 				}
 			}
 		} catch (SQLException e) {

@@ -2,19 +2,12 @@ package Model;
 
 public class NguoiDung {
 	int id;
-	String tendangnhap, loaiquyen;
+	String tennguoidung, tendangnhap, loaiquyen;
 
-	public String getLoaiquyen() {
-		return loaiquyen;
-	}
-
-	public void setLoaiquyen(String loaiquyen) {
-		this.loaiquyen = loaiquyen;
-	}
-
-	public NguoiDung(int id, String tendangnhap, String loaiquyen) {
+	public NguoiDung(int id, String tennguoidung, String tendangnhap, String loaiquyen) {
 		super();
 		this.id = id;
+		this.tennguoidung = tennguoidung;
 		this.tendangnhap = tendangnhap;
 		this.loaiquyen = loaiquyen;
 	}
@@ -33,6 +26,22 @@ public class NguoiDung {
 
 	public void setTendangnhap(String tendangnhap) {
 		this.tendangnhap = tendangnhap;
+	}
+
+	public String getTennguoidung() {
+		return tennguoidung;
+	}
+
+	public void setTennguoidung(String tennguoidung) {
+		this.tennguoidung = tennguoidung;
+	}
+
+	public String getLoaiquyen() {
+		return loaiquyen;
+	}
+
+	public void setLoaiquyen(String loaiquyen) {
+		this.loaiquyen = loaiquyen;
 	}
 
 }

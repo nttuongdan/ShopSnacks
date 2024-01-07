@@ -114,7 +114,7 @@ public class FoodDAO {
 		DBService db = new DBService();
 		PreparedStatement statement;
 		try {
-			statement = db.getConn().prepareStatement("DELETE FROM MONAN  where id=?");
+			statement = db.getConn().prepareStatement("DELETE FROM `monan` where id=?");
 			statement.setInt(1, id);
 			db.executeUpdate(statement);
 		} catch (SQLException e) {

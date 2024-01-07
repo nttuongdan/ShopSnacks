@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import DAO.FoodDAO;
 import Model.Food;
+import Model.NguoiDung;
 
 public class FoodAction extends ActionSupport implements SessionAware {
 
@@ -126,7 +127,7 @@ public class FoodAction extends ActionSupport implements SessionAware {
 				FileUtils.copyFile(hinh, file);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				 System.out.println(hinhFileName);
+				System.out.println(hinhFileName);
 
 //				e.printStackTrace();
 			}

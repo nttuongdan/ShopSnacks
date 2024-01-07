@@ -207,13 +207,13 @@
 		</a></li>
 		<li class="nav-item nav-category">hóa đơn</li>
 		<li class="nav-item"><a class="nav-link"
-			href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+			href="listHoaDonAction">
 				<i class="menu-icon mdi mdi-card-text-outline"></i> <span
 				class="menu-title">Danh sách hóa đơn</span>
 		</a></li>
 		<li class="nav-item nav-category">tài khoản</li>
 		<li class="nav-item"><a class="nav-link"
-			href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+			href="listTaiKhoanAction">
 				<i class="menu-icon mdi mdi-account-circle-outline"></i> <span
 				class="menu-title">Danh sách tài khoản</span>
 		</a></li>

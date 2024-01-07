@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+
 <!-- partial:../../partials/_navbar.html -->
 <nav
 	class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
@@ -12,10 +14,10 @@
 			</button>
 		</div>
 		<div>
-			<a class="navbar-brand brand-logo" href="../../index.html"> <img
-				src="../../assets/images/logo.svg" alt="logo" />
+			<a class="navbar-brand brand-logo" href="../../index.html"> <span
+				class="text-primary">ADMIN</span>
 			</a> <a class="navbar-brand brand-logo-mini" href="../../index.html">
-				<img src="../../assets/images/logo-mini.svg" alt="logo" />
+				<span class="text-secondary">ADMIN</span>
 			</a>
 		</div>
 	</div>
@@ -23,10 +25,10 @@
 		<ul class="navbar-nav">
 			<li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
 				<h1 class="welcome-text">
-					Good Morning, <span class="text-black fw-bold">John Doe</span>
+					Xin chào nè! <span class="text-black fw-bold"><s:property
+							value="tennguoidung" /> </span>
 				</h1>
-				<h3 class="welcome-sub-text">Your performance summary this week
-				</h3>
+				<h3 class="welcome-sub-text">Hiệu suất của bạn trong tuần này</h3>
 			</li>
 		</ul>
 		<ul class="navbar-nav ms-auto">
@@ -176,10 +178,8 @@
 				</div></li>
 			<li class="nav-item dropdown d-none d-lg-block user-dropdown"><a
 				class="nav-link" id="UserDropdown" href="#"
-				data-bs-toggle="dropdown" aria-expanded="false"> <img
-					class="img-xs rounded-circle"
-					src="../../assets/images/faces/face8.jpg" alt="Profile image">
-			</a>
+				data-bs-toggle="dropdown" aria-expanded="false"><i
+					class="fa-solid fa-user-tie"></i></a>
 				<div class="dropdown-menu dropdown-menu-right navbar-dropdown"
 					aria-labelledby="UserDropdown">
 					<div class="dropdown-header text-center">
@@ -197,12 +197,14 @@
 						class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
 						Activity</a> <a class="dropdown-item"><i
 						class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
-						FAQ</a> 
-						<form action="loginUser" method="POST" class="pt-3">
-						<a class="dropdown-item"><i
-						class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
-				</div> </form>
-				</li>
+						FAQ</a>
+					<form action="logoutUser" method="POST" class="pt-3">
+						<button type="submit" class="dropdown-item">
+							<i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Đăng
+							xuất
+						</button>
+				</div>
+				</form></li>
 		</ul>
 		<button
 			class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
