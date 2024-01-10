@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.HoaDon;
+import Model.HoaDonChiTiet;
 
 public class HoaDonDAO {
 	public List<HoaDon> getList() {
@@ -22,7 +23,8 @@ public class HoaDonDAO {
 
 			if (rs != null) {
 				while (rs.next()) {
-					list.add(new HoaDon(rs.getInt("id"), rs.getInt("nguoidung_id"), rs.getString("tennguoidung")));
+					list.add(new HoaDon(rs.getInt("id"), rs.getInt("nguoidung_id"), rs.getString("tennguoidung"),
+							rs.getInt("trangthai")));
 
 				}
 			}
@@ -32,4 +34,72 @@ public class HoaDonDAO {
 		}
 		return list;
 	}
+
+	public HoaDon getHoaDonByID(int id) {
+		HoaDon food = null;
+		DBService db = new DBService();
+		PreparedStatement statement;
+		try {
+			statement = db.getConn().prepareStatement("SELECT * from `donhang` WHERE `id`=?");
+			statement.setInt(1, id);
+
+			ResultSet rs = db.executeQuery(statement);
+
+			if (rs != null) {
+				while (rs.next()) {
+					food = new HoaDon(rs.getInt("id"),
+
+							rs.getInt("trangthai"));
+				}
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return food;
+	}
+
+	public void trangthai(int id, int trangthai) {
+		// TODO Auto-generated method stub
+		DBService db = new DBService();
+		PreparedStatement statement;
+		try {
+			statement = db.getConn().prepareStatement("UPDATE `donhang` SET `trangthai`=? where `id`=?");
+			statement.setInt(1, trangthai);
+			statement.setInt(2, id);
+			db.executeUpdate(statement);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public List<HoaDonChiTiet> getHoaDonChiTiet(int id) {
+
+		List<HoaDonChiTiet> list = new ArrayList<HoaDonChiTiet>();
+		DBService db = new DBService();
+		PreparedStatement statement;
+
+		try {
+			statement = db.getConn().prepareStatement(
+					"SELECT dhct.*, m.tenmonan FROM `donhang` dh, `donhangchitiet` dhct, `monan` m WHERE dh.id = dhct.donhang_id AND dhct.monan_id = m.id AND dh.id =?");
+			statement.setInt(1, id);
+
+			ResultSet rs = db.executeQuery(statement);
+
+			if (rs != null) {
+				while (rs.next()) {
+					list.add(new HoaDonChiTiet(rs.getInt("id"), rs.getInt("soluong"), rs.getInt("dongia"),
+							rs.getInt("thanhtien"), rs.getString("tenmonan")));
+
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 }

@@ -125,6 +125,14 @@ public class TaiKhoanAction extends ActionSupport implements SessionAware {
 		this.matkhaumoi = matkhaumoi;
 	}
 
+	public int getTrangthai() {
+		return trangthai;
+	}
+
+	public void setTrangthai(int trangthai) {
+		this.trangthai = trangthai;
+	}
+
 	private String matkhaucu, matkhaumoi;
 
 	private String admin, khach;
@@ -133,6 +141,7 @@ public class TaiKhoanAction extends ActionSupport implements SessionAware {
 	private List<TaiKhoan> listTaiKhoan;
 	private int id;
 	private String tennguoidung, tendangnhap, matkhau, loaitaikhoan;
+	private int trangthai;
 
 	public String list() {
 		listTaiKhoan = new TaiKhoanDAO().getList();
@@ -172,7 +181,13 @@ public class TaiKhoanAction extends ActionSupport implements SessionAware {
 	}
 
 	public String delete() {
-		new TaiKhoanDAO().delete(id);
+//		new TaiKhoanDAO().delete(id);
+		taikhoan = new TaiKhoanDAO().getTaiKhoanByID(id);
+		if (taikhoan.getTrangthai() == 1 && taikhoan.getLoaitaikhoan().compareTo("khach") == 0)
+			new TaiKhoanDAO().trangthai(id, 0);
+		else if (taikhoan.getTrangthai() == 0 && taikhoan.getLoaitaikhoan().compareTo("khach") == 0)
+			new TaiKhoanDAO().trangthai(id, 1);
+
 		return "list";
 	}
 

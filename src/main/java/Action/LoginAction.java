@@ -64,7 +64,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	}
 
 	public String logout() {
-		NguoiDung nd = (NguoiDung) session.get("nguoidung");
+		NguoiDung nd = null;
+		if (session.get("nguoidung") != null) {
+			nd = (NguoiDung) session.get("nguoidung");
+		}
 		if (nd.getLoaiquyen().equals("admin")) {
 			session.clear();
 			return "admin";

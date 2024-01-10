@@ -36,6 +36,8 @@
 											<thead>
 												<th>Id hóa đơn</th>
 												<th>Tên người mua</th>
+												<th>Trạng thái</th>
+
 												<th class="text-center">Xem chi tiết đơn hàng</th>
 											</thead>
 											<tbody>
@@ -43,8 +45,17 @@
 													<tr>
 														<td><s:property value="id" /></td>
 														<td><s:property value="tennguoidung" /></td>
+														<td><s:if test="trangthai == 1">
+																<a class="btn btn-success"
+																	href='deleteHoaDonAction?id=<s:property value="id"/>'>
+																	Đã xử lý</a>
+															</s:if> <s:else>
+																<a class="btn btn-danger"
+																	href='deleteHoaDonAction?id=<s:property value="id"/>'>
+																	Đang xử lý</a>
+															</s:else></td>
 														<td class="text-center"><a
-															href='showFoodAction?id=<s:property value="nguoidung_id"/>'><i
+															href='showHoaDonAction?id=<s:property value="id"/>'><i
 																class="fa-regular fa-circle-check"></i></a></td>
 													</tr>
 												</s:iterator>

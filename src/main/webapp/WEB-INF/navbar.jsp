@@ -38,7 +38,7 @@
 			<a class="text-decoration-none text-secondary" href="#"><i
 				class="bi bi-person-bounding-box"></i> Khách hàng</a> <a href="login"
 				class="btn btn-primary">Đăng nhập</a> <a
-				href="ThanhToanGioHangAction" class="btn btn-warning"><i
+				href="GioHangAction" class="btn btn-warning"><i
 				class="bi bi-bag"></i> <span class="text-danger fw-bold"><s:property
 						value="soluongsanpham" /> </span></a>
 		</div>

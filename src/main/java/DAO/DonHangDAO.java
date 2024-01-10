@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.DonHang;
+import Model.Food;
+import Model.HoaDon;
 
 public class DonHangDAO {
 
@@ -41,4 +43,6 @@ public class DonHangDAO {
 		}
 		return id;
 	}
+
+	
 }

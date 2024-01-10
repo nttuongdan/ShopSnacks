@@ -38,13 +38,18 @@
 
 							<ul>
 								<li>Facebook: <a
-									href="https://www.facebook.com/profile.php?id=100077129859669"
-									target="_blank">Nguyễn Thị Tường Dân</a></li>
+									href="https://www.facebook.com/cuocdoianhIT"
+									target="_blank">NTTường Dân hỗ trợ viên</a></li>
 								<li>Zalo: <a href="https://zalo.me/0332543351"
 									target="_blank">0332543351</a></li>
 								<li>Hotline: <a href="tel:0332543351" target="_blank">0332543351</a></li>
 							</ul>
-							<style>
+						
+						 
+                   
+        
+							
+							<!-- <style>
 #ContactForm1 {
 	position: relative;
 	margin: 0 0 30px
@@ -211,7 +216,7 @@
 	border: 1px solid #a922f7;
 	background: rgba(169, 105, 203, 0.06)
 }
-</style>
+</style> -->
 						</div>
 					</div>
 				</div>
