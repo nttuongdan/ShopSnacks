@@ -93,12 +93,22 @@ public class FoodAction extends ActionSupport implements SessionAware {
 		this.food = food;
 	}
 
+	public String getTrangthai() {
+		return trangthai;
+	}
+
+	public void setTrangthai(String trangthai) {
+		this.trangthai = trangthai;
+	}
+
 	File hinh;
 	String hinhFileName;
 	String hinhContentType;
 
 	private String tenmonan;
 	private int gia;
+
+	private String trangthai;
 
 	private int id;
 	private Food food;
@@ -169,7 +179,27 @@ public class FoodAction extends ActionSupport implements SessionAware {
 	}
 
 	public String delete() {
-		new FoodDAO().delete(id);
+//		new FoodDAO().delete(id);
+//		return "list";
+
+		Food food1 = new FoodDAO().getFoodByID(id);
+		System.out.print(food1);
+		if (food1.getTrangthai() == 1) {
+			new FoodDAO().trangthai(id, 0);
+		} else {
+			new FoodDAO().trangthai(id, 1);
+		}
+		return "list";
+	}
+
+	public String trangthai() {
+		Food food1 = new FoodDAO().getFoodByID(id);
+		System.out.print(food1);
+		if (food1.getTrangthai() == 1) {
+			new FoodDAO().trangthai(id, 0);
+		} else {
+			new FoodDAO().trangthai(id, 1);
+		}
 		return "list";
 	}
 

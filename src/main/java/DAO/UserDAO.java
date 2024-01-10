@@ -21,7 +21,7 @@ public class UserDAO {
 			if (rs != null) {
 				while (rs.next()) {
 					nd = new NguoiDung(rs.getInt("id"), rs.getString("tennguoidung"), rs.getString("tendangnhap"),
-							rs.getString("loaiquyen"));
+							rs.getString("loaiquyen"), rs.getInt("trangthai"));
 				}
 			}
 		} catch (SQLException e) {

@@ -23,7 +23,7 @@ public class FoodDAO {
 				while (rs.next()) {
 					list.add(new Food(rs.getInt("id"), rs.getString("tenmonan"),
 
-							rs.getString("hinhanh"), rs.getInt("gia")));
+							rs.getString("hinhanh"), rs.getInt("trangthai"), rs.getInt("gia")));
 				}
 			}
 		} catch (SQLException e) {
@@ -47,7 +47,7 @@ public class FoodDAO {
 				while (rs.next()) {
 					food = new Food(rs.getInt("id"), rs.getString("tenmonan"),
 
-							rs.getString("hinhanh"), rs.getInt("gia"));
+							rs.getString("hinhanh"), rs.getInt("trangthai"), rs.getInt("gia"));
 				}
 			}
 
@@ -116,6 +116,21 @@ public class FoodDAO {
 		try {
 			statement = db.getConn().prepareStatement("DELETE FROM `monan` where id=?");
 			statement.setInt(1, id);
+			db.executeUpdate(statement);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void trangthai(int id, int trangthai) {
+		// TODO Auto-generated method stub
+		DBService db = new DBService();
+		PreparedStatement statement;
+		try {
+			statement = db.getConn().prepareStatement("UPDATE `monan` SET `trangthai`=? where `id`=?");
+			statement.setInt(1, trangthai);
+			statement.setInt(2, id);
 			db.executeUpdate(statement);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

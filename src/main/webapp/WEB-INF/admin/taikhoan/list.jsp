@@ -41,6 +41,7 @@
 												<th>Tên đăng nhập</th>
 												<th>Mật khẩu</th>
 												<th>Loại tài khoản</th>
+												<th>Trạng thái</th>
 												<th>Sửa</th>
 												<th>Xóa</th>
 											</thead>
@@ -51,6 +52,15 @@
 														<td><s:property value="tendangnhap" /></td>
 														<td><s:property value="matkhau" /></td>
 														<td><s:property value="loaitaikhoan" /></td>
+														<td><s:if test="trangthai == 1">
+																<a class="btn btn-success"
+																	href='deleteTaiKhoanAction?id=<s:property value="id"/>'>
+																	Đang hoạt động</a>
+															</s:if> <s:else>
+																<a class="btn btn-danger"
+																	href='deleteTaiKhoanAction?id=<s:property value="id"/>'>
+																	Không hoạt động</a>
+															</s:else></td>
 														<td><a
 															href='editTaiKhoanAction?id=<s:property value="id"/>'><i
 																class="fa-regular fa-pen-to-square"></i></a></td>

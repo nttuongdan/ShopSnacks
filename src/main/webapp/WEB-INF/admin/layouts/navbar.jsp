@@ -14,9 +14,9 @@
 			</button>
 		</div>
 		<div>
-			<a class="navbar-brand brand-logo" href="../../index.html"> <span
+			<a class="navbar-brand brand-logo" href="homeAdminAction"> <span
 				class="text-primary">ADMIN</span>
-			</a> <a class="navbar-brand brand-logo-mini" href="../../index.html">
+			</a> <a class="navbar-brand brand-logo-mini" href="homeAdminAction">
 				<span class="text-secondary">ADMIN</span>
 			</a>
 		</div>

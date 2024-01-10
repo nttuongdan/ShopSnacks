@@ -2,11 +2,18 @@ package Model;
 
 public class HoaDon {
 
-	public HoaDon(int id, int nguoidung_id, String tennguoidung) {
+	public HoaDon(int id, int nguoidung_id, String tennguoidung, int trangthai) {
 		super();
 		this.id = id;
 		this.nguoidung_id = nguoidung_id;
 		this.tennguoidung = tennguoidung;
+		this.trangthai = trangthai;
+	}
+	
+	public HoaDon(int id, int trangthai) {
+		super();
+		this.id = id;
+		this.trangthai = trangthai;
 	}
 
 	public int getId() {
@@ -35,4 +42,14 @@ public class HoaDon {
 
 	int id, nguoidung_id;
 	String tennguoidung;
+
+	public int getTrangthai() {
+		return trangthai;
+	}
+
+	public void setTrangthai(int trangthai) {
+		this.trangthai = trangthai;
+	}
+
+	private int trangthai;
 }

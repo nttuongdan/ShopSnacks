@@ -29,39 +29,39 @@
 						<div class="col-lg-10 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-									<h4>Danh sách hóa đơn</h4>
+									<h4>Chi tiết hóa đơn</h4>
 
 									<div class="table-responsive">
 										<table class="table table-hover">
 											<thead>
 												<th>Id hóa đơn</th>
-												<th>Tên người mua</th>
-												<th>Trạng thái</th>
-
-												<th class="text-center">Xem chi tiết đơn hàng</th>
+												<th>Tên snack</th>
+												<th>Số lượng</th>
+												<th>Đơn giá</th>
+												<th>Thành tiền</th>
 											</thead>
 											<tbody>
-												<s:iterator var="hd" value="hoadon">
+												<s:iterator var="hd" value="hoadonchitiet">
 													<tr>
 														<td><s:property value="id" /></td>
-														<td><s:property value="tennguoidung" /></td>
-														<td><s:if test="trangthai == 1">
-																<a class="btn btn-success"
-																	href='deleteHoaDonAction?id=<s:property value="id"/>'>
-																	Đã xử lý</a>
-															</s:if> <s:else>
-																<a class="btn btn-danger"
-																	href='deleteHoaDonAction?id=<s:property value="id"/>'>
-																	Đang xử lý</a>
-															</s:else></td>
-														<td class="text-center"><a
-															href='showHoaDonAction?id=<s:property value="id"/>'><i
-																class="fa-regular fa-circle-check"></i></a></td>
+														<td><s:property value="tenmon" /></td>
+														<td><s:property value="soluong" /></td>
+														<td><s:property value="dongia" /></td>
+														<td><s:property value="thanhtien" /></td>
 													</tr>
 												</s:iterator>
+												<tr>
+													<td>Tổng tiền</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td><s:property value="tongtien" /></td>
+												</tr>
 											</tbody>
 										</table>
 									</div>
+									<a href="listHoaDonAction" class="btn btn-success">Trở về</a>
+
 								</div>
 							</div>
 						</div>

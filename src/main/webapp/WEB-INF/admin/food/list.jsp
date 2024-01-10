@@ -32,8 +32,7 @@
 									<h4>Danh sách bánh Snack</h4>
 
 									<a href="createFoodAction"
-										class="btn btn-secondary btn-rounded btn-fw my-3">Thêm
-										mới</a>
+										class="btn btn-secondary btn-rounded btn-fw my-3">Thêm mới</a>
 
 									<div class="table-responsive">
 										<table class="table table-hover">
@@ -41,6 +40,7 @@
 												<th>Tên món ăn</th>
 												<th>Hình ảnh</th>
 												<th>Giá</th>
+												<th>Tình trạng</th>
 												<th>Sửa</th>
 												<th>Xóa</th>
 											</thead>
@@ -50,7 +50,17 @@
 														<td><s:property value="ten" /></td>
 														<td><img style="width: 80px; height: 100px;"
 															src=' ./img/<s:property value="hinh"/>' /></td>
+
 														<td><s:property value="gia" /></td>
+														<td><s:if test="trangthai == 1">
+																<a class="btn btn-success"
+																	href='deleteFoodAction?id=<s:property value="id"/>'>
+																	Đang bán</a>
+															</s:if> <s:else>
+																<a class="btn btn-danger"
+																	href='deleteFoodAction?id=<s:property value="id"/>'>
+																	Hết hàng</a>
+															</s:else></td>
 														<td><a
 															href='editFoodAction?id=<s:property value="id"/>'><i
 																class="fa-regular fa-pen-to-square"></i></a></td>

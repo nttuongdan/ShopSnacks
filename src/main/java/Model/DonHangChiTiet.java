@@ -1,19 +1,24 @@
 package Model;
 
 public class DonHangChiTiet {
-	public DonHangChiTiet( int monan_id, int soluong, int dongia, String ghichu) {
+	public DonHangChiTiet(int monan_id, String tenmon, int soluong, int dongia, String ghichu) {
 		super();
 		this.monan_id = monan_id;
+		this.tenmon = tenmon;
 		this.soluong = soluong;
 		this.dongia = dongia;
+		this.thanhtien = soluong * dongia;
 		this.ghichu = ghichu;
 	}
+
 	public DonHangChiTiet(int donhang_id, int monan_id, int soluong, int dongia, String ghichu) {
 		super();
 		this.donhang_id = donhang_id;
 		this.monan_id = monan_id;
 		this.soluong = soluong;
 		this.dongia = dongia;
+		this.thanhtien = soluong * dongia;
+
 		this.ghichu = ghichu;
 	}
 
@@ -24,6 +29,7 @@ public class DonHangChiTiet {
 		this.monan_id = monan_id;
 		this.soluong = soluong;
 		this.dongia = dongia;
+		this.thanhtien = soluong * dongia;
 		this.ghichu = ghichu;
 	}
 
@@ -75,8 +81,28 @@ public class DonHangChiTiet {
 		this.ghichu = ghichu;
 	}
 
+	public String getTenmon() {
+		return tenmon;
+	}
+
+	public void setTenmon(String tenmon) {
+		this.tenmon = tenmon;
+	}
+
+	public int getThanhtien() {
+		return thanhtien;
+	}
+
+	public void setThanhtien(int thanhtien) {
+		this.thanhtien = thanhtien;
+	}
+
 	int id, donhang_id, monan_id, soluong;
 	int dongia;
 	String ghichu = "";
+
+	String tenmon;
+
+	int thanhtien;
 
 }

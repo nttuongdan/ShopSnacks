@@ -1,18 +1,21 @@
 package Model;
 
 public class Food {
-	int id;
-	String ten;
-	String hinh;
-	int gia;
 
-	public Food(int id, String ten, String hinh, int gia) {
+	public Food(int id, String ten, String hinh, int trangthai, int gia) {
 		super();
 		this.id = id;
 		this.ten = ten;
 		this.hinh = hinh;
+		this.trangthai = trangthai;
 		this.gia = gia;
 	}
+
+	int id;
+	String ten;
+	String hinh;
+	int trangthai;
+	int gia;
 
 	public int getId() {
 		return id;
@@ -44,6 +47,14 @@ public class Food {
 
 	public void setGia(int gia) {
 		this.gia = gia;
+	}
+
+	public int getTrangthai() {
+		return trangthai;
+	}
+
+	public void setTrangthai(int trangthai) {
+		this.trangthai = trangthai;
 	}
 
 }
