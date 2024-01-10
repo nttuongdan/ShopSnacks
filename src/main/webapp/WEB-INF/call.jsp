@@ -27,7 +27,7 @@
 								tôi. Đừng ham rẻ mà mua những nơi không uy tín sẽ không được hỗ
 								trợ, không đủ kinh nghiệm, hoặc mua theme về không đúng mẫu sẽ
 								mất tiền oan. Tiền nào của nấy bạn nên cân nhắc kỹ, bạn có thể
-								đọc <a href="/p/licenses.html">chính sách mua theme</a> để hiểu
+								đọc <a href="/p/licenses.html"></a> để hiểu
 								rõ dịch vụ bên chúng tôi nhé.<br> <b>Dịch vụ hỗ trợ của
 									chúng tôi cam kết không đúng mẫu mã, không hỗ trợ, không nhiệt
 									tình -&gt; đền 100% thiệt hại</b>
@@ -217,8 +217,9 @@
 				</div>
 			</article>
 		</div>
+			<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
-	<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 </html>

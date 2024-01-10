@@ -129,7 +129,8 @@
 
 			<section>
 				<div class="container my-3">
-					<h2 class="text-primary text-center mt-5 mb-3">Lý do chọn Shop Snack</h2>
+					<h2 class="text-primary text-center mt-5 mb-3">Lý do chọn Shop
+						Snack</h2>
 					<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
 						<div class="col">
 							<div class="item bg-danger-subtle p-4">
@@ -139,41 +140,45 @@
 											alt="100% sản phẩm chính hãng" class="img-fluid">
 									</div>
 									<div class="col-8">
-										<span class="text leading-tight">100% sản phẩm chính hãng</span>
+										<span class="text leading-tight">100% sản phẩm chính
+											hãng</span>
 									</div>
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="col">
 							<div class="item bg-danger-subtle p-4">
 								<div class="row">
 									<div class="col-4">
-										<img src="./img/location.png"
-											alt="Hệ thống trên toàn quốc" class="img-fluid">
+										<img src="./img/location.png" alt="Hệ thống trên toàn quốc"
+											class="img-fluid">
 									</div>
 									<div class="col-8">
-										<span class="text leading-tight">Hệ thống trên toàn quốc</span>
+										<span class="text leading-tight">Hệ thống trên toàn
+											quốc</span>
 									</div>
 								</div>
 							</div>
 						</div>
-					
-					<div class="col">
+
+						<div class="col">
 							<div class="item bg-danger-subtle p-4">
 								<div class="row">
 									<div class="col-4">
 										<img src="./img/like.png"
-											alt="Thương hiệu Nhật nội địa được ưa thích số 1 Việt Nam" class="img-fluid">
+											alt="Thương hiệu Nhật nội địa được ưa thích số 1 Việt Nam"
+											class="img-fluid">
 									</div>
 									<div class="col-8">
-										<span class="text leading-tight">Thương hiệu Nhật nội địa được ưa thích số 1 Việt Nam</span>
+										<span class="text leading-tight">Thương hiệu Nhật nội
+											địa được ưa thích số 1 Việt Nam</span>
 									</div>
 								</div>
 							</div>
 						</div>
-						
-						
+
+
 						<div class="col">
 							<div class="item bg-danger-subtle p-4">
 								<div class="row">
@@ -182,7 +187,8 @@
 											alt="Hơn 1000 mặt hàng phong phú" class="img-fluid">
 									</div>
 									<div class="col-8">
-										<span class="text leading-tight">Hơn 1000 mặt hàng phong phú</span>
+										<span class="text leading-tight">Hơn 1000 mặt hàng
+											phong phú</span>
 									</div>
 								</div>
 							</div>
@@ -191,12 +197,11 @@
 					</div>
 				</div>
 			</section>
-
-
 		</main>
+		<jsp:include page="footer.jsp"></jsp:include>
+
 	</div>
 
-	<jsp:include page="footer.jsp"></jsp:include>
-	</div>
+
 </body>
 </html>

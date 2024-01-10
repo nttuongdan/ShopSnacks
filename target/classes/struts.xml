@@ -29,8 +29,6 @@
 
 		</interceptors>
 
-
-
 		<action name="" class="Action.TrangchuAction" method="home">
 			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
@@ -39,7 +37,6 @@
 			method="home">
 			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
-<<<<<<< HEAD
 		
 		<action name="blog" class="Action.TrangchuAction" method="blog">
 			<result name="success">/WEB-INF/blog.jsp</result>
@@ -48,11 +45,6 @@
 			<result name="success">/WEB-INF/call.jsp</result>
 		</action>
 		
-
-		
-=======
-
->>>>>>> 7dfe8dbedaf4df4c6e82415d6f069d5bdd97cd9d
 		<action name="login">
 			<interceptor-ref name="authenticatedInterceptor" />
 			<result name="login">/WEB-INF/login.jsp</result>
@@ -69,36 +61,18 @@
 			<result name="admin" type="redirect">homeAdminAction</result>
 			<result name="khach" type="redirect">homeKhachAction</result>
 		</action>
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> 9ea9778296f721c6a9a84b43d147b927019093af
 		<!-- logoutUser -->
 		<action name="logoutUser" class="Action.LoginAction"
 			method="logout">
 			<result name="admin">/WEB-INF/login.jsp</result>
 			<result name="khach">/WEB-INF/index.jsp</result>
 		</action>
-<<<<<<< HEAD
 
 		<!-- RegisterUser <action name="register" class="Action.RegisterAction" 
 			method="register"> <result name="success">/registration-success.jsp</result> 
 			<result name="input">/register.jsp</result> </action> -->
 
-=======
-		
-		<!--  RegisterUser 
-       <action name="register" class="Action.RegisterAction" method="register">
-            <result name="success">/registration-success.jsp</result>
-            <result name="input">/register.jsp</result>
-        </action> -->
-    
->>>>>>> eedffc118d89c3fa2191a55ce9602f6ee99811e8
->>>>>>> 9ea9778296f721c6a9a84b43d147b927019093af
 
 		<!-- homeAdminAction -->
 		<action name="homeAdminAction" class="Action.AdminAction"
@@ -112,21 +86,11 @@
 			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="success">/WEB-INF/admin/home.jsp</result>
 		</action>
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-		<action name="*FoodAction" class="Action.FoodAction"
-			method="{1}">
-=======
-		
->>>>>>> 9ea9778296f721c6a9a84b43d147b927019093af
 		<!--FoodAction -->
 		<action name="*FoodAction" class="Action.FoodAction"
 			method="{1}">
 
->>>>>>> eedffc118d89c3fa2191a55ce9602f6ee99811e8
 			<interceptor-ref name="fileUpload" />
 			<interceptor-ref name="basicStack" />
 
@@ -148,7 +112,6 @@
 			<result name="list" type="redirect">listFoodAction</result>
 			<result name="input">/WEB-INF/admin/food/{1}.jsp</result>
 		</action>
-<<<<<<< HEAD
 
 		<action name="*TaiKhoanAction" class="Action.TaiKhoanAction"
 			method="{1}">
@@ -198,14 +161,6 @@
 			<result name="input">/WEB-INF/admin/hoadon/{1}.jsp</result>
 		</action>
 
-=======
-<<<<<<< HEAD
-
-
-=======
-		
->>>>>>> eedffc118d89c3fa2191a55ce9602f6ee99811e8
->>>>>>> 9ea9778296f721c6a9a84b43d147b927019093af
 		<!-- homeKhachAction -->
 		<action name="homeKhachAction" class="Action.KhachAction"
 			method="home">

@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 	<div class="container-fluid">
-		<a class="navbar-brand ms-5" href="homepage">LOGO</a>
+		<a class="navbar-brand ms-5" href="homepage"><img src="./img/snack1.png" style="width: 120px; height: 120px;"></a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
