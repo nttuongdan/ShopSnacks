@@ -69,10 +69,14 @@
 			<result name="khach">/WEB-INF/index.jsp</result>
 		</action>
 
-		<!-- RegisterUser <action name="register" class="Action.RegisterAction" 
-			method="register"> <result name="success">/registration-success.jsp</result> 
-			<result name="input">/register.jsp</result> </action> -->
+		<!-- RegisterUser -->
+		<action name="*Action" class="Action.DangKyAction" method="{1}">
+			<result name="success">/WEB-INF/login.jsp</result>
+			<result name="dangky">/WEB-INF/{1}.jsp</result>
+			<result name="input">/WEB-INF/{1}.jsp</result>
+			<result name="dangkythanhcong">/WEB-INF/dangkythanhcong.jsp</result>
 
+		</action>
 
 		<!-- homeAdminAction -->
 		<action name="homeAdminAction" class="Action.AdminAction"
@@ -226,7 +230,7 @@
 			method="ThemGioHangMoTa">
 			<result name="success">/WEB-INF/khach/datmon.jsp</result>
 		</action>
-		
+
 		<action name="CapNhatSoLuongAction" class="Action.KhachAction"
 			method="CapNhatSoLuong">
 			<result name="success">/WEB-INF/khach/giohang.jsp</result>

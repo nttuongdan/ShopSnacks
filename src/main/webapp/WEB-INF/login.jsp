@@ -83,7 +83,7 @@
 											</button>
 										</div>
 										<div class="text-center mt-4 fw-light">
-											Không có tài khoản? <a href="register.html"
+											Không có tài khoản? <a href="dangkyAction"
 												class="text-primary">Tạo mới</a>
 										</div>
 									</form>
