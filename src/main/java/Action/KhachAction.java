@@ -193,6 +193,11 @@ public class KhachAction extends ActionSupport implements SessionAware {
 				thanhtien += donhangchitiet.get(i).getThanhtien();
 			}
 		}
+//		if (session.get("donhangchitiet") == null)
+//			session.put("donhangthanhtoan", null);
+
+		System.out.print(session.get("donhangthanhtoan"));
+
 		return SUCCESS;
 	}
 
@@ -272,6 +277,62 @@ public class KhachAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+	public String CapNhatSoLuong() {
+
+		// nếu session khác null thì gán nó vào donhangchitiet
+		if (session.get("donhangchitiet") != null) {
+
+			// Lấy thông tin sản phẩm mới vừa click
+			food = new FoodDAO().getFoodByID(id);
+
+			donhangchitiet = (List<DonHangChiTiet>) session.get("donhangchitiet");
+
+			System.out.print(soluong);
+
+			for (int i = 0; i < donhangchitiet.size(); i++) {
+				if (food.getId() == donhangchitiet.get(i).getMonan_id()) {
+					donhangchitiet.get(i).setSoluong(soluong);
+					donhangchitiet.get(i)
+							.setThanhtien(donhangchitiet.get(i).getSoluong() * donhangchitiet.get(i).getDongia());
+				}
+			}
+
+			for (int i = 0; i < donhangchitiet.size(); i++) {
+				thanhtien += donhangchitiet.get(i).getThanhtien();
+			}
+
+			soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+
+		}
+
+		return SUCCESS;
+	}
+
+	public String XoaGioHangAction() {
+		if (session.get("donhangchitiet") != null) {
+			// Lấy thông tin sản phẩm mới vừa click
+			food = new FoodDAO().getFoodByID(id);
+
+			donhangchitiet = (List<DonHangChiTiet>) session.get("donhangchitiet");
+
+			for (int i = 0; i < donhangchitiet.size(); i++) {
+				if (food.getId() == donhangchitiet.get(i).getMonan_id()) {
+					donhangchitiet.remove(i); // Xóa phần tử tại vị trí i
+					break; // Thoát khỏi vòng lặp vì đã tìm thấy và xóa phần tử
+				}
+			}
+
+			// put session donhangchitiet
+			session.put("donhangchitiet", donhangchitiet);
+			soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+			for (int i = 0; i < donhangchitiet.size(); i++) {
+				thanhtien += donhangchitiet.get(i).getThanhtien();
+			}
+		}
+
+		return SUCCESS;
+	}
+
 
 	public String ThanhToanGioHang() {
 		// lấy người dùng hiện tại
@@ -296,5 +357,24 @@ public class KhachAction extends ActionSupport implements SessionAware {
 
 		return "thanhtoanthanhcong";
 	}
+	public String showDanhSachDonHangChiTiet() {
+		donhangchitiet = new DonHangChiTietDAO().getDonHangChiTietByID(donhang_id);
+		if (id <= 0) {
+            // Xử lý trường hợp id không hợp lệ
+            return ERROR;
+        }
+
+        try {
+            // Sử dụng DAO để lấy danh sách đơn hàng chi tiết từ nguồn dữ liệu (cơ sở dữ liệu, service, ...)
+            DonHangChiTietDAO donHangChiTietDAO = new DonHangChiTietDAO();
+            donHangChiTietList = donHangChiTietDAO;
+
+            return SUCCESS;
+        } catch (Exception e) {
+            // Xử lý ngoại lệ, ví dụ: log lỗi và chuyển hướng đến trang lỗi
+            e.printStackTrace();
+            return ERROR;
+        }
+    }
 
 }
