@@ -3,13 +3,15 @@ package Model;
 public class NguoiDung {
 	int id;
 	String tennguoidung, tendangnhap, loaiquyen;
+	int trangthai;
 
-	public NguoiDung(int id, String tennguoidung, String tendangnhap, String loaiquyen) {
+	public NguoiDung(int id, String tennguoidung, String tendangnhap, String loaiquyen, int trangthai) {
 		super();
 		this.id = id;
 		this.tennguoidung = tennguoidung;
 		this.tendangnhap = tendangnhap;
 		this.loaiquyen = loaiquyen;
+		this.trangthai = trangthai;
 	}
 
 	public int getId() {
@@ -44,4 +46,11 @@ public class NguoiDung {
 		this.loaiquyen = loaiquyen;
 	}
 
+	public int getTrangthai() {
+		return trangthai;
+	}
+
+	public void setTrangthai(int trangthai) {
+		this.trangthai = trangthai;
+	}
 }

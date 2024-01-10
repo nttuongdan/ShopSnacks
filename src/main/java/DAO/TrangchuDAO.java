@@ -13,6 +13,7 @@ public class TrangchuDAO {
 
 		List<Food> list = new ArrayList<Food>();
 		DBService db = new DBService();
+				
 		PreparedStatement statement;
 
 		try {
@@ -22,8 +23,7 @@ public class TrangchuDAO {
 			if (rs != null) {
 				while (rs.next()) {
 					list.add(new Food(rs.getInt("id"), rs.getString("tenmonan"),
-
-							rs.getString("hinhanh"), rs.getInt("gia")));
+							rs.getString("hinhanh"), rs.getInt("trangthai"), rs.getInt("gia")));
 				}
 			}
 		} catch (SQLException e) {

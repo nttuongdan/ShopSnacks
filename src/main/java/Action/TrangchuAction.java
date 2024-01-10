@@ -33,26 +33,33 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 	}
 
 	private List<Food> foodlist;
+	
+	public int getSoluongsanpham() {
+		return soluongsanpham;
+	}
+
+	public void setSoluongsanpham(int soluongsanpham) {
+		this.soluongsanpham = soluongsanpham;
+	}
+
+	private int soluongsanpham;
 
 	public String home() {
 		foodlist = new TrangchuDAO().getList();
 
+		if (session.get("donhangchitiet") != null)
+			// tạo biến số lượng sản phẩm snack
+			soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+
 		return "success";
 	}
-<<<<<<< HEAD
+
 	public String blog() {
 		return "success";
 	}
+
 	public String call() {
 		return "success";
 	}
-=======
 
-//	private List<>
-//	
-//	public void cart()
-//	{
-//		
-//	}
->>>>>>> 7dfe8dbedaf4df4c6e82415d6f069d5bdd97cd9d
 }

@@ -32,18 +32,27 @@
 									<p class="fw-bold text-dark">
 										<s:property value="gia" />
 										₫
-									</p></a> <a href='ThemGioHangAction?id=<s:property value="id"/>'
-								class="btn btn-outline-success w-100">Chọn mua</a>
+									</p>
+								</div></a>
+							<s:if test="trangthai ==1">
+								<a href='ThemGioHangAction?id=<s:property value="id"/>'
+									class="btn btn-outline-success w-100">Chọn mua</a>
+							</s:if>
+							<s:else>
+								<div class="btn btn-outline-danger w-100">Hết hàng</div>
+							</s:else>
+
 						</div>
 					</div>
+				</s:iterator>
+
 			</div>
 
-			</s:iterator>
-	</div>
-	</main>
-
-	<jsp:include page="footer.jsp"></jsp:include>
+		</main>
+		<jsp:include page="footer.jsp"></jsp:include>
 
 	</div>
+
+
 </body>
 </html>

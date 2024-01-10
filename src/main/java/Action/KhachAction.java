@@ -118,7 +118,7 @@ public class KhachAction extends ActionSupport implements SessionAware {
 		this.id = id;
 	}
 
-	int soluongsanpham = 0;
+	int soluongsanpham;
 
 	public int getSoluongsanpham() {
 		return soluongsanpham;
@@ -127,7 +127,7 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	public void setSoluongsanpham(int soluongsanpham) {
 		this.soluongsanpham = soluongsanpham;
 	}
-	
+
 	public List<Food> getFoodlist() {
 		return foodlist;
 	}
@@ -147,7 +147,7 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	}
 
 	private Food food;
-	
+
 	int id;
 	DonHang donhang;
 	List<DonHangChiTiet> donhangchitiet = new ArrayList<DonHangChiTiet>();
@@ -159,17 +159,35 @@ public class KhachAction extends ActionSupport implements SessionAware {
 //		foodlist = new FoodDAO().getList();
 		return "success";
 	}
-	
-//	public String SnackMoTa()
-//	{
-//		food = new FoodDAO().getFoodByID(id);
-//		return "success";
-//	}
+
+	public String SnackMoTa() {
+		food = new FoodDAO().getFoodByID(id);
+
+		if (session.get("donhangchitiet") != null)
+			// tạo biến số lượng sản phẩm snack
+			soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+
+		return "success";
+	}
+
+	public String GioHang() {
+
+		if (session.get("donhangchitiet") != null) {
+
+			soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+
+			donhangchitiet = ((List<DonHangChiTiet>) session.get("donhangchitiet"));
+			for (int i = 0; i < donhangchitiet.size(); i++) {
+				thanhtien += donhangchitiet.get(i).getThanhtien();
+			}
+		}
+		return SUCCESS;
+	}
 
 	public String ThemGioHang() {
 
 		// Lấy thông tin sản phẩm mới vừa click
-		Food f = new FoodDAO().getFoodByID(id);
+		food = new FoodDAO().getFoodByID(id);
 
 		// nếu session khác null thì gán nó vào donhangchitiet
 		if ((List<DonHangChiTiet>) session.get("donhangchitiet") != null) {
@@ -180,45 +198,88 @@ public class KhachAction extends ActionSupport implements SessionAware {
 		int vitri = 0;
 		if (donhangchitiet != null)
 			for (int i = 0; i < donhangchitiet.size(); i++) {
-				if (f.getId() == donhangchitiet.get(i).getMonan_id()) {
+				if (food.getId() == donhangchitiet.get(i).getMonan_id()) {
 					donhangchitiet.get(i).setSoluong(donhangchitiet.get(i).getSoluong() + 1);
+					donhangchitiet.get(i)
+							.setThanhtien(donhangchitiet.get(i).getSoluong() * donhangchitiet.get(i).getDongia());
 					vitri = 1;
 				}
 			}
 		// Nếu chưa có sản phẩm đó thì thêm vào và số lượng bằng 1
 		if (vitri == 0)
-			donhangchitiet.add(new DonHangChiTiet(f.getId(), 1, f.getGia(), ghichu));
+			donhangchitiet.add(new DonHangChiTiet(food.getId(), food.getTen(), 1, food.getGia(), ghichu));
 
 		// put session donhangchitiet
 		session.put("donhangchitiet", donhangchitiet);
 
 		// tạo biến số lượng sản phẩm snack
 		soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
-		
+
+		session.put("soluongsanpham", soluongsanpham);
+
 		foodlist = new TrangchuDAO().getList();
 
 		return SUCCESS;
 	}
 
+	public String ThemGioHangMoTa() {
+
+		// Lấy thông tin sản phẩm mới vừa click
+		food = new FoodDAO().getFoodByID(id);
+
+		// nếu session khác null thì gán nó vào donhangchitiet
+		if ((List<DonHangChiTiet>) session.get("donhangchitiet") != null) {
+			donhangchitiet = (List<DonHangChiTiet>) session.get("donhangchitiet");
+		}
+
+		// Nếu mona_id đã có thì cộng 1 số lượng vào
+		int vitri = 0;
+		if (donhangchitiet != null)
+			for (int i = 0; i < donhangchitiet.size(); i++) {
+				if (food.getId() == donhangchitiet.get(i).getMonan_id()) {
+					donhangchitiet.get(i).setSoluong(donhangchitiet.get(i).getSoluong() + soluong);
+					donhangchitiet.get(i)
+							.setThanhtien(donhangchitiet.get(i).getSoluong() * donhangchitiet.get(i).getDongia());
+					vitri = 1;
+				}
+			}
+		// Nếu chưa có sản phẩm đó thì thêm vào và số lượng bằng 1
+		if (vitri == 0)
+			donhangchitiet.add(new DonHangChiTiet(food.getId(), food.getTen(), soluong, food.getGia(), ghichu));
+
+		// put session donhangchitiet
+		session.put("donhangchitiet", donhangchitiet);
+
+		// tạo biến số lượng sản phẩm snack
+		soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+
+		session.put("soluongsanpham", soluongsanpham);
+
+		foodlist = new TrangchuDAO().getList();
+
+		return SUCCESS;
+	}
 
 	public String ThanhToanGioHang() {
 		// lấy người dùng hiện tại
 		NguoiDung nd = (NguoiDung) session.get("nguoidung");
 
-		//lấy id của đơn hàng mới vừa tạo
+		// lấy id của đơn hàng mới vừa tạo
 		int dh_id = new DonHangDAO().store(nd.getId());
 
-		List<DonHangChiTiet> dhct = ((List<DonHangChiTiet>) session.get("donhangchitiet"));
+		if (session.get("donhangchitiet") != null) {
 
-		//thêm từng chi tiết đơn hàng ở session
-		for (int i = 0; i < dhct.size(); i++) {
-			new DonHangChiTietDAO().store(dh_id, dhct.get(i).getMonan_id(), dhct.get(i).getSoluong(),
-					dhct.get(i).getDongia(), dhct.get(i).getDongia() * dhct.get(i).getSoluong(), ghichu);
+			List<DonHangChiTiet> dhct = ((List<DonHangChiTiet>) session.get("donhangchitiet"));
+			// thêm từng chi tiết đơn hàng ở session
+			for (int i = 0; i < dhct.size(); i++) {
+				new DonHangChiTietDAO().store(dh_id, dhct.get(i).getMonan_id(), dhct.get(i).getSoluong(),
+						dhct.get(i).getDongia(), dhct.get(i).getDongia() * dhct.get(i).getSoluong(), ghichu);
+			}
+
+			// xóa session và bảng donhangchitiet
+			session.remove("donhangchitiet");
+			donhangchitiet = null;
 		}
-
-		//xóa session và bảng donhangchitiet
-		session.remove("donhangchitiet");
-		donhangchitiet = null;
 
 		return "thanhtoanthanhcong";
 	}
