@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class DBService {
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://192.168.92.128:3306/Snacks?allowPublicKeyRetrieval=true&useSSL=false";
+	static final String DB_URL = "jdbc:mysql://192.168.145.131:3306/Snacks?allowPublicKeyRetrieval=true&useSSL=false";
 	static final String USER = "dbuser";
 	static final String PASS = "p@ssword";
 
