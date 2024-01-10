@@ -28,10 +28,9 @@ public class DBService {
 
 	public ResultSet executeQuery(PreparedStatement stmt) {
 
-		
 		ResultSet rs = null;
 		try {
-			
+
 			rs = stmt.executeQuery();
 			// stmt.close();
 		} catch (SQLException e) {

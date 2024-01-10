@@ -27,7 +27,7 @@
 								tôi. Đừng ham rẻ mà mua những nơi không uy tín sẽ không được hỗ
 								trợ, không đủ kinh nghiệm, hoặc mua theme về không đúng mẫu sẽ
 								mất tiền oan. Tiền nào của nấy bạn nên cân nhắc kỹ, bạn có thể
-								đọc <a href="/p/licenses.html">chính sách mua theme</a> để hiểu
+								đọc <a href="/p/licenses.html"></a> để hiểu
 								rõ dịch vụ bên chúng tôi nhé.<br> <b>Dịch vụ hỗ trợ của
 									chúng tôi cam kết không đúng mẫu mã, không hỗ trợ, không nhiệt
 									tình -&gt; đền 100% thiệt hại</b>
@@ -38,13 +38,18 @@
 
 							<ul>
 								<li>Facebook: <a
-									href="https://www.facebook.com/profile.php?id=100077129859669"
-									target="_blank">Nguyễn Thị Tường Dân</a></li>
+									href="https://www.facebook.com/cuocdoianhIT"
+									target="_blank">NTTường Dân hỗ trợ viên</a></li>
 								<li>Zalo: <a href="https://zalo.me/0332543351"
 									target="_blank">0332543351</a></li>
 								<li>Hotline: <a href="tel:0332543351" target="_blank">0332543351</a></li>
 							</ul>
-							<style>
+						
+						 
+                   
+        
+							
+							<!-- <style>
 #ContactForm1 {
 	position: relative;
 	margin: 0 0 30px
@@ -211,15 +216,15 @@
 	border: 1px solid #a922f7;
 	background: rgba(169, 105, 203, 0.06)
 }
-</style>
+</style> -->
 						</div>
 					</div>
 				</div>
 			</article>
 		</div>
-		<jsp:include page="footer.jsp"></jsp:include>
-
+			<jsp:include page="footer.jsp"></jsp:include>
 	</div>
+
 
 </body>
 </html>

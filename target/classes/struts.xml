@@ -29,7 +29,6 @@
 
 		</interceptors>
 
-
 		<!--Trang chủ -->
 		<action name="" class="Action.TrangchuAction" method="home">
 			<result name="success">/WEB-INF/index.jsp</result>
