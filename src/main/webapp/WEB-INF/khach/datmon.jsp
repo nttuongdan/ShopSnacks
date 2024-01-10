@@ -62,7 +62,7 @@
 						<br>
 						<div class="action">
 							<button class="add-to-cart btn btn-warning" type="button">
-  								<i class="bi bi-bag"></i> Thêm vào vỏ hàng
+  								<i href='ThemGioHangAction?id=<s:property value="id"/>'class="bi bi-bag"></i> Thêm vào vỏ hàng
 							</button>
 							<button class="add-to-cart btn btn-default" type="button">
   								<i class="bi bi-heart"></i> Yêu thích

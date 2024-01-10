@@ -34,14 +34,28 @@
 		<action name="" class="Action.TrangchuAction" method="home">
 			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
-		
-		<action name="homepage" class="Action.TrangchuAction" method="home">
+
+		<action name="homepage" class="Action.TrangchuAction"
+			method="home">
 			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
 		<action name="giohang" class="Action.TrangchuAction" method="home">
 			<result name="success">/WEB-INF/khach/giohang.jsp</result>
 		</action>
+		<action name="SnackMoTaAction" class="Action.TrangchuAction"
+			method="SnackMoTa">
+			<result name="success">/WEB-INF/snackmota.jsp</result>
+		</action>
 		
+		<action name="blog" class="Action.TrangchuAction" method="blog">
+			<result name="success">/WEB-INF/blog.jsp</result>
+		</action>
+			<action name="call" class="Action.TrangchuAction" method="call">
+			<result name="success">/WEB-INF/call.jsp</result>
+		</action>
+		
+		
+
 		<action name="login">
 			<interceptor-ref name="authenticatedInterceptor" />
 			<result name="login">/WEB-INF/login.jsp</result>
@@ -73,6 +87,18 @@
         </action> -->
     
 
+		<!-- logoutUser -->
+		<action name="logoutUser" class="Action.LoginAction"
+			method="logout">
+			<result name="admin">/WEB-INF/login.jsp</result>
+			<result name="khach">/WEB-INF/index.jsp</result>
+		</action>
+
+		<!-- RegisterUser <action name="register" class="Action.RegisterAction" 
+			method="register"> <result name="success">/registration-success.jsp</result> 
+			<result name="input">/register.jsp</result> </action> -->
+
+
 		<!-- homeAdminAction -->
 		<action name="homeAdminAction" class="Action.AdminAction"
 			method="home">
@@ -85,9 +111,10 @@
 			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="success">/WEB-INF/admin/home.jsp</result>
 		</action>
-		
+
 		<!--FoodAction -->
-		<action name="*FoodAction" class="Action.FoodAction" method="{1}">
+		<action name="*FoodAction" class="Action.FoodAction"
+			method="{1}">
 
 			<interceptor-ref name="fileUpload" />
 			<interceptor-ref name="basicStack" />
@@ -107,24 +134,80 @@
 			<result name="error">/WEB-INF/error.jsp</result>
 			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="success">/WEB-INF/admin/food/{1}.jsp</result>
-			<result name="list" type="chain">listFoodAction</result>
+			<result name="list" type="redirect">listFoodAction</result>
 			<result name="input">/WEB-INF/admin/food/{1}.jsp</result>
 		</action>
-		
+
+		<action name="*TaiKhoanAction" class="Action.TaiKhoanAction"
+			method="{1}">
+			<interceptor-ref name="fileUpload" />
+			<interceptor-ref name="basicStack" />
+
+			<interceptor-ref name="loginInterceptor" />
+			<interceptor-ref name="params" />
+
+			<interceptor-ref name="roleBasedIntercetor">
+				<param name="allowedRoles">admin</param>
+			</interceptor-ref>
+
+			<interceptor-ref name="validation">
+				<param name="excludeMethods">list,create,edit,delete</param>
+			</interceptor-ref>
+			<interceptor-ref name="workflow" />
+
+			<result name="error">/WEB-INF/error.jsp</result>
+			<result name="login">/WEB-INF/login.jsp</result>
+			<result name="success">/WEB-INF/admin/taikhoan/{1}.jsp</result>
+			<result name="list" type="redirect">listTaiKhoanAction</result>
+			<result name="input">/WEB-INF/admin/taikhoan/{1}.jsp</result>
+		</action>
+
+		<action name="*HoaDonAction" class="Action.HoaDonAction"
+			method="{1}">
+			<interceptor-ref name="fileUpload" />
+			<interceptor-ref name="basicStack" />
+
+			<interceptor-ref name="loginInterceptor" />
+			<interceptor-ref name="params" />
+
+			<interceptor-ref name="roleBasedIntercetor">
+				<param name="allowedRoles">admin</param>
+			</interceptor-ref>
+
+			<interceptor-ref name="validation">
+				<param name="excludeMethods">list,create,edit,delete</param>
+			</interceptor-ref>
+			<interceptor-ref name="workflow" />
+
+			<result name="error">/WEB-INF/error.jsp</result>
+			<result name="login">/WEB-INF/login.jsp</result>
+			<result name="success">/WEB-INF/admin/hoadon/{1}.jsp</result>
+			<result name="list" type="redirect">listHoaDonAction</result>
+			<result name="input">/WEB-INF/admin/hoadon/{1}.jsp</result>
+		</action>
+
 		<!-- homeKhachAction -->
 		<action name="homeKhachAction" class="Action.KhachAction"
 			method="home">
 			<interceptor-ref name="loginStack" />
 			<result name="login">/WEB-INF/login.jsp</result>
-			<result name="success">/WEB-INF/khach/thucdon.jsp</result>
+			<result name="success">/WEB-INF/khach/giohang.jsp</result>
 
 		</action>
 
-		<action name="orderAction" class="Action.KhachAction"
-			method="order">
+		
+		
+
+		<action name="ThemGioHangAction" class="Action.KhachAction"
+			method="ThemGioHang">
+			<result name="success">/WEB-INF/index.jsp</result>
+		</action>
+
+		<action name="ThanhToanGioHangAction"
+			class="Action.KhachAction" method="ThanhToanGioHang">
 			<interceptor-ref name="loginStack" />
 			<result name="login">/WEB-INF/login.jsp</result>
-			<result name="success">/WEB-INF/khach/datmon.jsp</result>
+			<result name="thanhtoanthanhcong">/WEB-INF/khach/thanhtoanthanhcong.jsp</result>
 		</action>
 
 		<action name="submitOrderAction" class="Action.KhachAction"
@@ -134,8 +217,7 @@
 			<result name="success" type="redirect">homeKhachAction</result>
 			<result name="input">/WEB-INF/view/khach/datmon.jsp</result>
 		</action>
-
-
+		
 
 	</package>
 </struts>

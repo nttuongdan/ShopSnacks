@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 	<div class="container-fluid">
 		<a class="navbar-brand ms-5" href="homepage">LOGO</a>
@@ -16,10 +18,10 @@
 					class="nav-link active fw-bold text-danger" aria-current="page"
 					href="homepage">Trang chủ</a></li>
 				<li class="nav-item"><a class="nav-link fw-bold text-success"
-					href="#">Blog</a></li>
+					href="blog">Blog</a></li>
 
 				<li class="nav-item"><a class="nav-link fw-bold text-info"
-					href="#">Liên hệ</a></li>
+					href="call">Liên hệ</a></li>
 
 			</ul>
 			<form class="d-flex" role="search">
@@ -31,11 +33,15 @@
 			</form>
 
 		</div>
+
 		<div class="me-5">
 			<a class="text-decoration-none text-secondary" href="#"><i
-				class="bi bi-person-bounding-box"></i> Khách hàng</a> <a href="login"
-				class="btn btn-primary">Đăng nhập</a> <a href="giohang"
-				class="btn btn-warning"><i class="bi bi-bag"></i></a>
+				class="bi bi-person-bounding-box"></i> Khách hàng</a> 
+				<a href="login" class="btn btn-primary">Đăng nhập</a> <a
+				href="ThanhToanGioHangAction" class="btn btn-warning"><i
+				class="bi bi-bag"></i> <span class="text-danger fw-bold"><s:property
+						value="soluongsanpham" /> </span></a>
+
 		</div>
 	</div>
 </nav>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,23 +20,46 @@
 						<div class="col-md-6 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-									<h4 class="card-title">Thêm mới món ăn</h4>
-									
-									<s:form action="updateFoodAction" method="POST"
-										enctype="multipart/form-data" validate="true">
-										<input type="hidden" name="id"
-											value='<s:property value="food.id"/>' />
+									<h4 class="card-title">Sửa món ăn</h4>
 
-										<s:textfield label="Tên món ăn" id="tenmonan" name="tenmonan"
-											value="%{food.ten }" />
-										<s:textfield id="gia" name="gia" label="Giá"
-											value="%{food.gia }" />
-		Hình: <img width='80' src='./img/<s:property value="food.hinh"/>' />
-										<br />
-										<s:file name="hinh" label="Chọn hình"
-											accept="image/png, image/jpeg, image/gif"></s:file>
-										<s:submit />
-									</s:form>
+									<form class="forms-sample" action="updateFoodAction"
+										method="POST" enctype="multipart/form-data" validate="true">
+
+										<div class="form-group">
+											<input type="hidden" class="form-control"
+												id="exampleInputUsername1" name="id"
+												value='<s:property value="food.id"/>'>
+										</div>
+
+										<div class="form-group">
+											<label for="exampleInputUsername1">Tên bánh snack</label> <input
+												type="text" class="form-control" id="exampleInputUsername1"
+												placeholder="Osi snack" name="tenmonan"
+												value='<s:property value="food.ten"/>'>
+										</div>
+
+										<div class="form-group">
+											<label>Hình</label> <img width='80'
+												src='./img/<s:property value="food.hinh"/>' />
+										</div>
+
+										<div class="form-group">
+											<label for="exampleInputEmail1">Hình ảnh</label> <input
+												type="file" class="form-control" id="exampleInputEmail1"
+												placeholder="hinh ảnh" name="hinh"
+												accept="image/png, image/jpeg, image/gif">
+										</div>
+
+										<div class="form-group">
+											<label for="exampleInputEmail1">Giá</label> <input
+												type="number" class="form-control" id="exampleInputEmail1"
+												placeholder="Giá" name="gia"
+												value='<s:property value="food.gia"/>'>
+										</div>
+
+										<button type="submit" class="btn btn-primary me-2">Sửa</button>
+										<a href="listFoodAction" class="btn btn-light">Hủy </a>
+									</form>
 
 								</div>
 							</div>

@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Star Admin2</title>
+<title>Shop Snack</title>
 <!-- plugins:css -->
 <link rel="stylesheet" href="./assets/vendors/feather/feather.css">
 <link rel="stylesheet"
@@ -71,11 +71,10 @@
 											class="my-2 d-flex justify-content-between align-items-center">
 											<div class="form-check">
 												<label class="form-check-label text-muted"> <input
-													type="checkbox" class="form-check-input"> Keep me
-													signed in
+													type="checkbox" class="form-check-input"> Ghi nhớ
 												</label>
 											</div>
-											<a href="#" class="auth-link text-black">Forgot password?</a>
+											<a href="#" class="auth-link text-black">Quên mật khẩu?</a>
 										</div>
 										<div class="mb-2">
 											<button type="button"
@@ -84,8 +83,8 @@
 											</button>
 										</div>
 										<div class="text-center mt-4 fw-light">
-											Don't have an account? <a href="register.html"
-												class="text-primary">Create</a>
+											Không có tài khoản? <a href="register.html"
+												class="text-primary">Tạo mới</a>
 										</div>
 									</form>
 								</div>
@@ -101,7 +100,6 @@
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
-	>>>>>>> af129b3cd6fa94b791bbce7f5ffbf171ed8d3558
 	<!-- container-scroller -->
 	<!-- plugins:js -->
 	<script src="./assets/vendors/js/vendor.bundle.base.js"></script>

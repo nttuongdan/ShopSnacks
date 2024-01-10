@@ -42,6 +42,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		NguoiDung nd = new UserDAO().login(tendangnhap, matkhau);
 		if (nd != null) {
 			session.put("nguoidung", nd);
+//			NguoiDung nd1 = (NguoiDung) session.get("nguoidung");
+
 			System.out.println("Login success");
 			if (nd.getLoaiquyen().equals("admin")) {
 				return "admin";
@@ -59,5 +61,15 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			System.out.println("Login fail");
 			return "loginfail";
 		}
+	}
+
+	public String logout() {
+		NguoiDung nd = (NguoiDung) session.get("nguoidung");
+		if (nd.getLoaiquyen().equals("admin")) {
+			session.clear();
+			return "admin";
+		}
+		session.clear();
+		return "khach";
 	}
 }

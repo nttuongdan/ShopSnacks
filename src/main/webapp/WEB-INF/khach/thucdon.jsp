@@ -5,10 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<jsp:include page="../head.jsp" />
 <meta charset="UTF-8">
 <title>Menu</title>
 </head>
 <body>
+<jsp:include page="../head.jsp" />
 	<h1>Food list</h1>
 	<s:if test='getMessage()"!=""'>
 		<p>
