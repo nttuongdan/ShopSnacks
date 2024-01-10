@@ -74,7 +74,8 @@
 									<li class="border-bottom mb-0"><a
 										class="nav-link-style d-flex align-items-center px-4 py-3 active"
 										href="donhangKhachAction"> <i
-											class="ci-bag opacity-60 me-2"></i>Đơn hàng
+											class="ci-bag opacity-60 me-2"></i>Đơn hàng<span
+											class="fs-sm text-muted ms-auto"></span>
 									</a></li>
 								</ul>
 								<div class="bg-body-secondary px-4 py-3">
@@ -96,9 +97,41 @@
 							</div>
 						</div>
 					</aside>
+					<div class="col-md-6 grid-margin stretch-card">
+						<div class="card">
+							<div class="card-body">
+								<h4 class="card-title">Sửa đổi mật khẩu</h4>
+
+								<form class="forms-sample" action="quenmatkhauxylyKhachAction"
+									method="POST" enctype="multipart/form-data" validate="true">
+									<div class="form-group my-1">
+										<label for="exampleInputPassword1">Mật khẩu cũ</label> <input
+											type="password" class="form-control"
+											id="exampleInputPassword1" placeholder="Mật khẩu"
+											name="matkhaucu">
+									</div>
+									<div class="form-group my-1">
+										<label for="exampleInputPassword1">Mật khẩu mới</label> <input
+											type="password" class="form-control"
+											id="exampleInputPassword1" placeholder="Mật khẩu"
+											name="matkhaumoi">
+									</div>
+
+									<div class="form-group my-1">
+										<label for="exampleInputConfirmPassword1">Xác nhận mật
+											khẩu </label> <input type="password" class="form-control"
+											id="exampleInputConfirmPassword1"
+											placeholder="Xác nhận mật khẩu" name="xacnhanmatkhau">
+									</div>
+
+									<button type="submit" class="btn btn-primary me-2 mt-3 w-50">Lưu</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-
 
 		</main>
 		<jsp:include page="../footer.jsp"></jsp:include>

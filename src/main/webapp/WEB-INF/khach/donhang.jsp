@@ -73,8 +73,8 @@
 								<ul class="list-unstyled mb-0">
 									<li class="border-bottom mb-0"><a
 										class="nav-link-style d-flex align-items-center px-4 py-3 active"
-										href="donhangKhachAction"> <i
-											class="ci-bag opacity-60 me-2"></i>Đơn hàng
+										href="#"> <i class="ci-bag opacity-60 me-2"></i>Đơn hàng<span
+											class="fs-sm text-muted ms-auto"></span>
 									</a></li>
 								</ul>
 								<div class="bg-body-secondary px-4 py-3">
@@ -96,9 +96,57 @@
 							</div>
 						</div>
 					</aside>
+					<section class="col-lg-8">
+						<div
+							class="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
+							<div class="d-flex align-items-center">
+								<label
+									class="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2"
+									for="order-sort">Sắp xếp theo:</label> <label
+									class="d-lg-none fs-sm text-nowrap opacity-75 me-2"
+									for="order-sort">Sắp xếp theo:</label> <select
+									class="form-select" id="order-sort">
+									<option>Tất cả</option>
+									<option>Đã giao</option>
+									<option>Đang vận chuyển</option>
+									<option>Đã chuyển hoàn</option>
+									<option>Đã hủy</option>
+								</select>
+							</div>
+
+						</div>
+						<div class="table-responsive fs-md mb-4">
+							<table class="table table-hover mb-0">
+								<thead>
+									<tr>
+										<th>Mã đơn</th>
+										<th>Ngày đặt hàng</th>
+										<th>Trạng thái</th>
+										<th>Tổng tiền</th>
+									</tr>
+								</thead>
+								<tbody>
+									<s:iterator var="donhang" value="donhangmua">
+										<tr>
+											<td class="py-3"><a
+												class="nav-link-style fw-medium fs-sm" href="#"
+												data-bs-toggle="modal">HD-<s:property value="id" /></a></td>
+											<td class="py-3"><s:property value="ngaydat" /></td>
+											<td class="py-3"><s:if test="trangthai == 1">
+													<span class="badge bg-info m-0">Đã xử lý</span>
+												</s:if> <s:else>
+													<span class="badge bg-danger m-0"> Đang xử lý </span>
+												</s:else></td>
+											<td class="py-3 text-left"><s:property value="tongtien" /></td>
+										</tr>
+									</s:iterator>
+								</tbody>
+							</table>
+						</div>
+
+					</section>
 				</div>
 			</div>
-
 
 		</main>
 		<jsp:include page="../footer.jsp"></jsp:include>

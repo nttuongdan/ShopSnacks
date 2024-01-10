@@ -1,5 +1,7 @@
 package Model;
 
+import java.sql.Date;
+
 public class HoaDon {
 
 	public HoaDon(int id, int nguoidung_id, String tennguoidung, int trangthai) {
@@ -9,11 +11,19 @@ public class HoaDon {
 		this.tennguoidung = tennguoidung;
 		this.trangthai = trangthai;
 	}
-	
+
 	public HoaDon(int id, int trangthai) {
 		super();
 		this.id = id;
 		this.trangthai = trangthai;
+	}
+
+	public HoaDon(int id, Date ngaydat, int trangthai, int tongtien) {
+		super();
+		this.id = id;
+		this.trangthai = trangthai;
+		this.ngaydat = ngaydat;
+		this.tongtien = tongtien;
 	}
 
 	public int getId() {
@@ -40,9 +50,6 @@ public class HoaDon {
 		this.tennguoidung = tennguoidung;
 	}
 
-	int id, nguoidung_id;
-	String tennguoidung;
-
 	public int getTrangthai() {
 		return trangthai;
 	}
@@ -51,5 +58,27 @@ public class HoaDon {
 		this.trangthai = trangthai;
 	}
 
+	public Date getNgaydat() {
+		return ngaydat;
+	}
+
+	public void setNgaydat(Date ngaydat) {
+		this.ngaydat = ngaydat;
+	}
+
+	public int getTongtien() {
+		return tongtien;
+	}
+
+	public void setTongtien(int tongtien) {
+		this.tongtien = tongtien;
+	}
+
+	String tennguoidung;
+
+	int id, nguoidung_id;
+
 	private int trangthai;
+	Date ngaydat;
+	int tongtien;
 }

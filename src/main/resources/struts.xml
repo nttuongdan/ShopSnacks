@@ -30,7 +30,7 @@
 		</interceptors>
 
 
-
+		<!--Trang chủ -->
 		<action name="" class="Action.TrangchuAction" method="home">
 			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
@@ -40,16 +40,15 @@
 			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
 
-		<action name="giohang" class="Action.TrangchuAction" method="home">
+		<action name="giohang" class="Action.TrangchuAction"
+			method="home">
 			<result name="success">/WEB-INF/khach/giohang.jsp</result>
 		</action>
+
 		<action name="SnackMoTaAction" class="Action.TrangchuAction"
 			method="SnackMoTa">
 			<result name="success">/WEB-INF/snackmota.jsp</result>
 		</action>
-		
-
-
 
 		<action name="blog" class="Action.TrangchuAction" method="blog">
 			<result name="success">/WEB-INF/blog.jsp</result>
@@ -63,7 +62,7 @@
 			<interceptor-ref name="authenticatedInterceptor" />
 			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="admin" type="redirect">homeAdminAction</result>
-			<result name="khach" type="redirect">GioHangAction</result>
+			<result name="khach" type="redirect">homeKhachAction</result>
 		</action>
 
 		<!-- loginUser -->
@@ -72,21 +71,8 @@
 			<result name="loginfail">/WEB-INF/login.jsp</result>
 			<result name="admin" type="redirect">homeAdminAction</result>
 			<result name="khach" type="redirect">homeKhachAction</result>
+			<result name="taikhoanbikhoa">/WEB-INF/taikhoanbikhoa.jsp</result>
 		</action>
-		
-		<!-- logoutUser
-		<action name="logoutUser" class="Action.LogoutAction"
-			method="logout">
-			<result name="admin" type="redirect">homeAdminAction</result>
-			<result name="khach" type="redirect">homeKhachAction</result>
-		</action> -->
-		
-		<!--  RegisterUser 
-       <action name="register" class="Action.RegisterAction" method="register">
-            <result name="success">/registration-success.jsp</result>
-            <result name="input">/register.jsp</result>
-        </action> -->
-    
 
 		<!-- logoutUser -->
 		<action name="logoutUser" class="Action.LoginAction"
@@ -96,12 +82,18 @@
 		</action>
 
 		<!-- RegisterUser -->
-		<action name="*Action" class="Action.DangKyAction" method="{1}">
+		<action name="*dkAction" class="Action.DangKyAction"
+			method="{1}">
 			<result name="success">/WEB-INF/login.jsp</result>
 			<result name="dangky">/WEB-INF/{1}.jsp</result>
 			<result name="input">/WEB-INF/{1}.jsp</result>
 			<result name="dangkythanhcong">/WEB-INF/dangkythanhcong.jsp</result>
+		</action>
 
+		<!-- quên mật khẩu -->
+		<action name="quanmatkhauAction" class="Action.LoginAction"
+			method="quenmatkhau">
+			<result name="quenmatkhau">/WEB-INF/quenmatkhau.jsp</result>
 		</action>
 
 		<!-- homeAdminAction -->
@@ -112,6 +104,7 @@
 			<interceptor-ref name="roleBasedIntercetor">
 				<param name="allowedRoles">admin</param>
 			</interceptor-ref>
+			<interceptor-ref name="loginStack" />
 			<result name="error">/WEB-INF/error.jsp</result>
 			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="success">/WEB-INF/admin/home.jsp</result>
@@ -125,11 +118,11 @@
 			<interceptor-ref name="roleBasedIntercetor">
 				<param name="allowedRoles">admin</param>
 			</interceptor-ref>
+			<interceptor-ref name="loginStack" />
 			<result name="error">/WEB-INF/error.jsp</result>
 			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="success">/WEB-INF/admin/dashboard.jsp</result>
 		</action>
-
 
 		<!--FoodAction -->
 		<action name="*FoodAction" class="Action.FoodAction"
@@ -172,8 +165,6 @@
 			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="list">/WEB-INF/admin/food/list.jsp</result>
 			<result name="success">/WEB-INF/admin/food/list.jsp</result>
-
-
 		</action>
 
 		<action name="*TaiKhoanAction" class="Action.TaiKhoanAction"
@@ -225,19 +216,19 @@
 		</action>
 
 		<!-- homeKhachAction -->
-		<action name="homeKhachAction" class="Action.KhachAction"
-			method="home">
+		<action name="*KhachAction" class="Action.KhachAction"
+			method="{1}">
 			<interceptor-ref name="loginInterceptor" />
 			<interceptor-ref name="params" />
 			<interceptor-ref name="roleBasedIntercetor">
 				<param name="allowedRoles">khach</param>
 			</interceptor-ref>
+			<interceptor-ref name="loginStack" />
 			<result name="error">/WEB-INF/error.jsp</result>
 			<result name="login">/WEB-INF/login.jsp</result>
-			<result name="success">/WEB-INF/khach/home.jsp</result>
+			<result name="success">/WEB-INF/khach/{1}.jsp</result>
+			<result name="input">/WEB-INF/khach/{1}.jsp</result>
 		</action>
-
-		
 
 
 		<action name="SnackMoTaAction" class="Action.KhachAction"
@@ -274,7 +265,7 @@
 		<action name="ThanhToanGioHangAction"
 			class="Action.KhachAction" method="ThanhToanGioHang">
 			<interceptor-ref name="loginStack" />
-			<result name="loginUser">/WEB-INF/login.jsp</result>
+			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="thanhtoanthanhcong">/WEB-INF/khach/thanhtoanthanhcong.jsp</result>
 		</action>
 
@@ -285,7 +276,7 @@
 			<result name="success" type="redirect">homeKhachAction</result>
 			<result name="input">/WEB-INF/view/khach/datmon.jsp</result>
 		</action>
-		
+
 
 	</package>
 </struts>

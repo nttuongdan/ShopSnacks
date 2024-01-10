@@ -70,15 +70,15 @@ public class AdminAction extends ActionSupport implements SessionAware {
 	private List<DonHang> thongke;
 
 	public String home() {
-//		NguoiDung nd = (NguoiDung) session.get("nguoidung");
-//
-//		System.out.print(nd.getTennguoidung());
+		NguoiDung nd = (NguoiDung) session.get("nguoidung");
+
+		tennguoidung = (nd.getTennguoidung());
 
 		sl_sanpham = new AdminDAO().soluongsanpham();
 		sl_hoadon = new AdminDAO().soluonghoadon();
 		sl_taikhoan = new AdminDAO().soluongtaikhoan();
 		thongke = new AdminDAO().thongke();
-		
+
 		return "success";
 	}
 

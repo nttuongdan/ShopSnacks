@@ -102,4 +102,29 @@ public class HoaDonDAO {
 		return list;
 	}
 
+	public List<HoaDon> getHoaDon_Khach(int id) {
+
+		List<HoaDon> list = new ArrayList<HoaDon>();
+		DBService db = new DBService();
+		PreparedStatement statement;
+
+		try {
+			statement = db.getConn().prepareStatement(
+					"SELECT dh.id, dh.ngaydat, dh.trangthai, SUM(dhct.thanhtien) as tongtien FROM `donhang` dh, `donhangchitiet` dhct WHERE dh.id = dhct.donhang_id AND dh.nguoidung_id = ? GROUP BY dhct.donhang_id ORDER By dh.ngaydat DESC");
+			statement.setInt(1, id);
+
+			ResultSet rs = db.executeQuery(statement);
+
+			if (rs != null) {
+				while (rs.next()) {
+					list.add(new HoaDon(rs.getInt("id"), rs.getDate("ngaydat"), rs.getInt("trangthai"), rs.getInt("tongtien")));
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 }

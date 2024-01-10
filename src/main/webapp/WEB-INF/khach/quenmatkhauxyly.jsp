@@ -96,6 +96,14 @@
 							</div>
 						</div>
 					</aside>
+
+					<div class="col-md-6 grid-margin stretch-card">
+						<div class="card">
+							<div class="card-body">
+								<h4 class="card-title text-info">Mật khẩu mới đã được lưu</h4>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 

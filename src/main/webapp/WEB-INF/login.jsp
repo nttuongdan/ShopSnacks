@@ -61,12 +61,12 @@
 												type="submit">ĐĂNG NHẬP</button>
 										</div>
 
-										 <!-- Display error message if login fails -->
+										<!-- Display error message if login fails -->
 										<s:if test="hasActionErrors()">
 											<div style="color: red;">
 												<s:actionerror />
 											</div>
-										</s:if> 
+										</s:if>
 										<div
 											class="my-2 d-flex justify-content-between align-items-center">
 											<div class="form-check">
@@ -74,7 +74,8 @@
 													type="checkbox" class="form-check-input"> Ghi nhớ
 												</label>
 											</div>
-											<a href="#" class="auth-link text-black">Quên mật khẩu?</a>
+											<a href="quanmatkhauAction" class="auth-link text-black">Quên
+												mật khẩu?</a>
 										</div>
 										<div class="mb-2">
 											<button type="button"
@@ -83,7 +84,7 @@
 											</button>
 										</div>
 										<div class="text-center mt-4 fw-light">
-											Không có tài khoản? <a href="dangkyAction"
+											Không có tài khoản? <a href="dangkydkAction"
 												class="text-primary">Tạo mới</a>
 										</div>
 									</form>

@@ -35,16 +35,16 @@
 		</div>
 
 		<div class="me-5">
-			
-				 <a href="ThanhToanGioHangAction" class="btn btn-warning">
 
-			<a class="text-decoration-none text-secondary" href="homeKhachAction"><i
-				class="bi bi-person-bounding-box"></i> Khách hàng</a> <a href="login"
-				class="btn btn-primary">Đăng nhập</a> <a
+			<s:if test="tennguoidung !=null">
+				<a class="text-decoration-none text-secondary"
+					href="homeKhachAction"><i class="bi bi-person-bounding-box"></i>
+					<s:property value="tennguoidung" /> </a>
+			</s:if>
+			<a href="login" class="btn btn-primary">Đăng nhập</a> <a
 				href="GioHangAction" class="btn btn-warning"><i
 				class="bi bi-bag"></i> <span class="text-danger fw-bold"><s:property
 						value="soluongsanpham" /> </span></a>
-
 		</div>
 	</div>
 </nav>

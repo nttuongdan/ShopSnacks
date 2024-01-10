@@ -68,7 +68,8 @@ public class TaiKhoanDAO {
 				while (rs.next()) {
 					taikhoan = new TaiKhoan(rs.getInt("id"), rs.getString("tennguoidung"),
 
-							rs.getString("tendangnhap"), rs.getString("matkhau"), rs.getString("loaiquyen"), rs.getInt("trangthai"));
+							rs.getString("tendangnhap"), rs.getString("matkhau"), rs.getString("loaiquyen"),
+							rs.getInt("trangthai"));
 				}
 			}
 
@@ -138,7 +139,7 @@ public class TaiKhoanDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void trangthai(int id, int trangthai) {
 		// TODO Auto-generated method stub
 		DBService db = new DBService();
@@ -146,6 +147,21 @@ public class TaiKhoanDAO {
 		try {
 			statement = db.getConn().prepareStatement("UPDATE `nguoidung` SET `trangthai`=? where `id`=?");
 			statement.setInt(1, trangthai);
+			statement.setInt(2, id);
+			db.executeUpdate(statement);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void matkhaumoi(int id, String matkhau) {
+		// TODO Auto-generated method stub
+		DBService db = new DBService();
+		PreparedStatement statement;
+		try {
+			statement = db.getConn().prepareStatement("UPDATE `nguoidung` SET `matkhau`=? where `id`=?");
+			statement.setString(1, MD5.getMd5(matkhau));
 			statement.setInt(2, id);
 			db.executeUpdate(statement);
 		} catch (SQLException e) {

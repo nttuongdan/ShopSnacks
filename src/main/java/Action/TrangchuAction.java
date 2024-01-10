@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import DAO.TrangchuDAO;
 import Model.DonHangChiTiet;
 import Model.Food;
+import Model.NguoiDung;
 
 public class TrangchuAction extends ActionSupport implements SessionAware {
 
@@ -33,7 +34,7 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 	}
 
 	private List<Food> foodlist;
-	
+
 	public int getSoluongsanpham() {
 		return soluongsanpham;
 	}
@@ -42,10 +43,25 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 		this.soluongsanpham = soluongsanpham;
 	}
 
+	public String getTennguoidung() {
+		return tennguoidung;
+	}
+
+	public void setTennguoidung(String tennguoidung) {
+		this.tennguoidung = tennguoidung;
+	}
+
+	String tennguoidung;
+
 	private int soluongsanpham;
 
 	public String home() {
 		foodlist = new TrangchuDAO().getList();
+
+		if (session.get("nguoidung") != null) {
+			NguoiDung nd = (NguoiDung) session.get("nguoidung");
+			tennguoidung = nd.getTennguoidung();
+		}
 
 		if (session.get("donhangchitiet") != null)
 			// tạo biến số lượng sản phẩm snack
@@ -55,21 +71,37 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 	}
 
 	public String giohang() {
-		
+
+		if (session.get("nguoidung") != null) {
+			NguoiDung nd = (NguoiDung) session.get("nguoidung");
+			tennguoidung = nd.getTennguoidung();
+		}
 		return "success";
 	}
 
 	public String blog() {
+		if (session.get("nguoidung") != null) {
+			NguoiDung nd = (NguoiDung) session.get("nguoidung");
+			tennguoidung = nd.getTennguoidung();
+		}
 		return "success";
 	}
 
 	public String call() {
-		return "success";
-	}
-	public String SnackMoTa() {
+		if (session.get("nguoidung") != null) {
+			NguoiDung nd = (NguoiDung) session.get("nguoidung");
+			tennguoidung = nd.getTennguoidung();
+		}
 		return "success";
 	}
 
+	public String SnackMoTa() {
+		if (session.get("nguoidung") != null) {
+			NguoiDung nd = (NguoiDung) session.get("nguoidung");
+			tennguoidung = nd.getTennguoidung();
+		}
+		return "success";
+	}
 
 //	private List<>
 //	
@@ -77,6 +109,5 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 //	{
 //		
 //	}
-
 
 }

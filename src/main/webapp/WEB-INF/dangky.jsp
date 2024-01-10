@@ -20,21 +20,24 @@
 						<div class="card-body">
 							<h4 class="card-title">Đăng ký tài khoản</h4>
 							<p class="card-description">Với tư cách khách hàng</p>
-							<form class="forms-sample my-3" action="dangkyxulyAction" method="post">
+							<form class="forms-sample my-3" action="dangkyxulydkAction"
+								method="post">
 								<div class="form-group row my-2">
 									<label for="exampleInputUsername2"
 										class="col-sm-3 col-form-label">Tên người dùng</label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control"
-											id="exampleInputUsername2" placeholder="Nguyễn Thị Tường Dân">
+											id="exampleInputUsername2" placeholder="Nguyễn Thị Tường Dân"
+											name="tennguoidung">
 									</div>
 								</div>
 								<div class="form-group row my-2">
 									<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Tên
 										đăng nhập</label>
 									<div class="col-sm-9">
-										<input type="email" class="form-control"
-											id="exampleInputEmail2" placeholder="nmt123">
+										<input type="text" class="form-control"
+											id="exampleInputEmail2" placeholder="nmt123"
+											name="tendangnhap">
 									</div>
 								</div>
 								<div class="form-group row my-2">
@@ -42,7 +45,8 @@
 										class="col-sm-3 col-form-label">Mật khẩu</label>
 									<div class="col-sm-9">
 										<input type="password" class="form-control"
-											id="exampleInputPassword2" placeholder="Vd:123456">
+											id="exampleInputPassword2" placeholder="Vd:123456"
+											name="matkhau">
 									</div>
 								</div>
 								<div class="form-group row my-2">
@@ -50,7 +54,8 @@
 										class="col-sm-3 col-form-label">Xác nhận mật khẩu</label>
 									<div class="col-sm-9">
 										<input type="password" class="form-control"
-											id="exampleInputConfirmPassword2" placeholder="Xác nhận">
+											id="exampleInputConfirmPassword2" placeholder="Xác nhận"
+											name="xacnhanmatkhau">
 									</div>
 								</div>
 

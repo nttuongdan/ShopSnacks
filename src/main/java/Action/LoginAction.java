@@ -45,10 +45,16 @@ public class LoginAction extends ActionSupport implements SessionAware {
 //			NguoiDung nd1 = (NguoiDung) session.get("nguoidung");
 
 			System.out.println("Login success");
-			if (nd.getLoaiquyen().equals("admin")) {
+			if (nd.getLoaiquyen().equals("admin") && nd.getTrangthai() == 1) {
+				session.put("nguoidung", nd);
 				return "admin";
-			} else
+			} else if (nd.getLoaiquyen().equals("khach") && nd.getTrangthai() == 1) {
+				session.put("nguoidung", nd);
 				return "khach";
+			} else {
+				session.remove("nguoidung");
+				return "taikhoanbikhoa";
+			}
 		} else {
 			// If login fails, add field-specific error messages
 			if (tendangnhap == null || tendangnhap.trim().isEmpty()) {
@@ -67,7 +73,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		NguoiDung nd = null;
 		if (session.get("nguoidung") != null) {
 			nd = (NguoiDung) session.get("nguoidung");
-			
+
 			if (nd.getLoaiquyen().equals("admin")) {
 				session.clear();
 				return "admin";
@@ -76,5 +82,34 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 		session.clear();
 		return "khach";
+	}
+
+	public String loginthanhtoan() {
+		NguoiDung nd = new UserDAO().login(tendangnhap, matkhau);
+		if (nd != null) {
+			session.put("nguoidung", nd);
+			System.out.println("Login success");
+			if (nd.getLoaiquyen().equals("khach") && nd.getTrangthai() == 1) {
+				return "thanhtoan";
+			} else {
+				session.remove("nguoidung");
+				return "taikhoanbikhoa";
+			}
+		} else {
+			// If login fails, add field-specific error messages
+			if (tendangnhap == null || tendangnhap.trim().isEmpty()) {
+				addFieldError("tendangnhap", "Tên đăng nhập không được để trống");
+			}
+			if (matkhau == null || matkhau.trim().isEmpty()) {
+				addFieldError("matkhau", "Mật khẩu không được để trống");
+			}
+			addActionError("Bạn nhập sai tên đăng nhập hoặc mật khẩu!");
+			System.out.println("Login fail");
+			return "loginfail";
+		}
+	}
+
+	public String quenmatkhau() {
+		return "quenmatkhau";
 	}
 }

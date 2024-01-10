@@ -1,7 +1,6 @@
 package Action;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -12,10 +11,13 @@ import com.opensymphony.xwork2.ActionSupport;
 import DAO.DonHangChiTietDAO;
 import DAO.DonHangDAO;
 import DAO.FoodDAO;
+import DAO.HoaDonDAO;
+import DAO.TaiKhoanDAO;
 import DAO.TrangchuDAO;
 import Model.DonHang;
 import Model.DonHangChiTiet;
 import Model.Food;
+import Model.HoaDon;
 import Model.NguoiDung;
 import Model.TaiKhoan;
 
@@ -26,7 +28,6 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> getSession() {
 		return session;
 	}
-	
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -149,6 +150,7 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	public void setFood(Food food) {
 		this.food = food;
 	}
+
 	public String getTendangnhap() {
 		return tendangnhap;
 	}
@@ -156,6 +158,47 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	public void setTendangnhap(String tendangnhap) {
 		this.tendangnhap = tendangnhap;
 	}
+
+	public String getTennguoidung() {
+		return tennguoidung;
+	}
+
+	public void setTennguoidung(String tennguoidung) {
+		this.tennguoidung = tennguoidung;
+	}
+
+	public List<HoaDon> getDonhangmua() {
+		return donhangmua;
+	}
+
+	public void setDonhangmua(List<HoaDon> donhangmua) {
+		this.donhangmua = donhangmua;
+	}
+
+	public String getMatkhaucu() {
+		return matkhaucu;
+	}
+
+	public void setMatkhaucu(String matkhaucu) {
+		this.matkhaucu = matkhaucu;
+	}
+
+	public String getMatkhaumoi() {
+		return matkhaumoi;
+	}
+
+	public void setMatkhaumoi(String matkhaumoi) {
+		this.matkhaumoi = matkhaumoi;
+	}
+
+	public String getXacnhanmatkhau() {
+		return xacnhanmatkhau;
+	}
+
+	public void setXacnhanmatkhau(String xacnhanmatkhau) {
+		this.xacnhanmatkhau = xacnhanmatkhau;
+	}
+
 	private TaiKhoan taikhoan;
 
 	private Food food;
@@ -165,10 +208,55 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	List<DonHangChiTiet> donhangchitiet = new ArrayList<DonHangChiTiet>();
 	int donhang_id, donhangchitiet_id, monan_id, soluong, dongia, thanhtien;
 	String tendonhang, ghichu = "";
+	String tennguoidung;
+
+	String matkhaucu, matkhaumoi, xacnhanmatkhau;
+
+	List<HoaDon> donhangmua = new ArrayList<HoaDon>();
 
 	public String home() {
 		System.out.println("welcome Khach action");
-//		foodlist = new FoodDAO().getList();
+		NguoiDung nd = (NguoiDung) session.get("nguoidung");
+		tennguoidung = nd.getTennguoidung();
+		if (session.get("donhangchitiet") != null) {
+			soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+		}
+		return "success";
+	}
+
+	public String donhang() {
+
+		NguoiDung nd = (NguoiDung) session.get("nguoidung");
+		tennguoidung = nd.getTennguoidung();
+
+		donhangmua = new HoaDonDAO().getHoaDon_Khach(nd.getId());
+		if (session.get("donhangchitiet") != null) {
+			soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+		}
+		return "success";
+	}
+
+	public String quenmatkhau() {
+		NguoiDung nd = (NguoiDung) session.get("nguoidung");
+		tennguoidung = nd.getTennguoidung();
+		if (session.get("donhangchitiet") != null) {
+			soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+		}
+		return "success";
+	}
+
+	public String quenmatkhauxyly() {
+		NguoiDung nd = (NguoiDung) session.get("nguoidung");
+		tennguoidung = nd.getTennguoidung();
+		if (session.get("donhangchitiet") != null) {
+			soluongsanpham = ((List<DonHangChiTiet>) session.get("donhangchitiet")).size();
+		}
+		if (new TaiKhoanDAO().getMatKhau(nd.getId(), matkhaucu)) {
+			if (matkhaumoi.compareTo(xacnhanmatkhau) == 0) {
+				new TaiKhoanDAO().matkhaumoi(nd.getId(), matkhaumoi);
+				System.out.print("Lưu thành công");
+			}
+		}
 		return "success";
 	}
 
@@ -333,7 +421,6 @@ public class KhachAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
-
 	public String ThanhToanGioHang() {
 		// lấy người dùng hiện tại
 		NguoiDung nd = (NguoiDung) session.get("nguoidung");
@@ -357,24 +444,24 @@ public class KhachAction extends ActionSupport implements SessionAware {
 
 		return "thanhtoanthanhcong";
 	}
-	public String showDanhSachDonHangChiTiet() {
-		donhangchitiet = new DonHangChiTietDAO().getDonHangChiTietByID(donhang_id);
-		if (id <= 0) {
-            // Xử lý trường hợp id không hợp lệ
-            return ERROR;
-        }
-
-        try {
-            // Sử dụng DAO để lấy danh sách đơn hàng chi tiết từ nguồn dữ liệu (cơ sở dữ liệu, service, ...)
-            DonHangChiTietDAO donHangChiTietDAO = new DonHangChiTietDAO();
-            donHangChiTietList = donHangChiTietDAO;
-
-            return SUCCESS;
-        } catch (Exception e) {
-            // Xử lý ngoại lệ, ví dụ: log lỗi và chuyển hướng đến trang lỗi
-            e.printStackTrace();
-            return ERROR;
-        }
-    }
+//	public String showDanhSachDonHangChiTiet() {
+//		donhangchitiet = new DonHangChiTietDAO().getDonHangChiTietByID(donhang_id);
+//		if (id <= 0) {
+//            // Xử lý trường hợp id không hợp lệ
+//            return ERROR;
+//        }
+//
+//        try {
+//            // Sử dụng DAO để lấy danh sách đơn hàng chi tiết từ nguồn dữ liệu (cơ sở dữ liệu, service, ...)
+//            DonHangChiTietDAO donHangChiTietDAO = new DonHangChiTietDAO();
+//            donHangChiTietList = donHangChiTietDAO;
+//
+//            return SUCCESS;
+//        } catch (Exception e) {
+//            // Xử lý ngoại lệ, ví dụ: log lỗi và chuyển hướng đến trang lỗi
+//            e.printStackTrace();
+//            return ERROR;
+//        }
+//    }
 
 }
