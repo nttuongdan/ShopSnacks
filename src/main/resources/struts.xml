@@ -51,7 +51,7 @@
 			<interceptor-ref name="authenticatedInterceptor" />
 			<result name="login">/WEB-INF/login.jsp</result>
 			<result name="admin" type="redirect">homeAdminAction</result>
-			<result name="khach" type="redirect">homeKhachAction</result>
+			<result name="khach" type="redirect">GioHangAction</result>
 		</action>
 
 		<!-- loginUser -->
@@ -59,7 +59,7 @@
 			method="login">
 			<result name="loginfail">/WEB-INF/login.jsp</result>
 			<result name="admin" type="redirect">homeAdminAction</result>
-			<result name="khach" type="redirect">GioHangAction</result>
+			<result name="khach" type="redirect">homeKhachAction</result>
 		</action>
 
 		<!-- logoutUser -->
@@ -195,12 +195,23 @@
 		</action>
 
 		<!-- homeKhachAction -->
+		<action name="homeKhachAction" class="Action.KhachAction"
+			method="home">
+			<interceptor-ref name="loginInterceptor" />
+			<interceptor-ref name="params" />
+			<interceptor-ref name="roleBasedIntercetor">
+				<param name="allowedRoles">khach</param>
+			</interceptor-ref>
+			<result name="error">/WEB-INF/error.jsp</result>
+			<result name="login">/WEB-INF/login.jsp</result>
+			<result name="success">/WEB-INF/khach/home.jsp</result>
+		</action>
 
 		<action name="SnackMoTaAction" class="Action.KhachAction"
 			method="SnackMoTa">
 			<result name="success">/WEB-INF/khach/datmon.jsp</result>
 		</action>
-		
+
 		<action name="GioHangAction" class="Action.KhachAction"
 			method="GioHang">
 			<result name="success">/WEB-INF/khach/giohang.jsp</result>
@@ -215,11 +226,21 @@
 			method="ThemGioHangMoTa">
 			<result name="success">/WEB-INF/khach/datmon.jsp</result>
 		</action>
+		
+		<action name="CapNhatSoLuongAction" class="Action.KhachAction"
+			method="CapNhatSoLuong">
+			<result name="success">/WEB-INF/khach/giohang.jsp</result>
+		</action>
+
+		<action name="XoaGioHangAction" class="Action.KhachAction"
+			method="XoaGioHangAction">
+			<result name="success">/WEB-INF/khach/giohang.jsp</result>
+		</action>
 
 		<action name="ThanhToanGioHangAction"
 			class="Action.KhachAction" method="ThanhToanGioHang">
 			<interceptor-ref name="loginStack" />
-			<result name="login">/WEB-INF/login.jsp</result>
+			<result name="loginUser">/WEB-INF/login.jsp</result>
 			<result name="thanhtoanthanhcong">/WEB-INF/khach/thanhtoanthanhcong.jsp</result>
 		</action>
 

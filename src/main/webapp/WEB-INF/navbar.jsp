@@ -35,7 +35,7 @@
 		</div>
 
 		<div class="me-5">
-			<a class="text-decoration-none text-secondary" href="#"><i
+			<a class="text-decoration-none text-secondary" href="homeKhachAction"><i
 				class="bi bi-person-bounding-box"></i> Khách hàng</a> <a href="login"
 				class="btn btn-primary">Đăng nhập</a> <a
 				href="GioHangAction" class="btn btn-warning"><i
