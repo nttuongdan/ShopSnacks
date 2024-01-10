@@ -5,7 +5,11 @@ import java.sql.*;
 
 public class DBService {
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+<<<<<<< HEAD
 	static final String DB_URL = "jdbc:mysql://192.168.145.131:3306/Snacks?allowPublicKeyRetrieval=true&useSSL=false";
+=======
+	static final String DB_URL = "jdbc:mysql://192.168.186.128:3306/Snacks?allowPublicKeyRetrieval=true&useSSL=false";
+>>>>>>> 1cb1c858694df45fc47e7dc573db3ec579386791
 	static final String USER = "dbuser";
 	static final String PASS = "p@ssword";
 
@@ -28,10 +32,10 @@ public class DBService {
 
 	public ResultSet executeQuery(PreparedStatement stmt) {
 
-		// Statement stmt = null;
+		
 		ResultSet rs = null;
 		try {
-			// stmt = conn.createStatement();
+			
 			rs = stmt.executeQuery();
 			// stmt.close();
 		} catch (SQLException e) {
@@ -60,5 +64,9 @@ public class DBService {
 			e.printStackTrace();
 		}
 	}
+<<<<<<< HEAD
 
 }
+=======
+}
+>>>>>>> 1cb1c858694df45fc47e7dc573db3ec579386791

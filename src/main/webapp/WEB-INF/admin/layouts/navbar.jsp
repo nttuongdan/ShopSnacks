@@ -143,7 +143,7 @@
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item preview-item">
 						<div class="preview-thumbnail">
-							<img src="../../assets/images/faces/face10.jpg" alt="image"
+							<img src="../../assets/images/faces/trump-icon-7.jpg" alt="image"
 								class="img-sm profile-pic">
 						</div>
 						<div class="preview-item-content flex-grow py-2">

@@ -100,7 +100,6 @@
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
-	>>>>>>> af129b3cd6fa94b791bbce7f5ffbf171ed8d3558
 	<!-- container-scroller -->
 	<!-- plugins:js -->
 	<script src="./assets/vendors/js/vendor.bundle.base.js"></script>
