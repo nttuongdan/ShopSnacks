@@ -4,7 +4,8 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 	<div class="container-fluid">
-		<a class="navbar-brand ms-5" href="homepage"><img src="./img/snack1.png" style="width: 120px; height: 120px;"></a>
+		<a class="navbar-brand ms-5" href="homepage"><img
+			src="./img/snack1.png" style="width: 120px; height: 120px;"></a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -24,9 +25,10 @@
 					href="call">Liên hệ</a></li>
 
 			</ul>
-			<form class="d-flex" role="search">
+			<form class="d-flex" action="timkiemAction" method="get"
+				accept-charset="UTF-8">
 				<input class="form-control me-2" type="search"
-					placeholder="Tìm kiếm" aria-label="Search">
+					placeholder="Tìm kiếm" aria-label="Search" name="timkiem">
 				<button class="btn btn-outline-success" type="submit">
 					<i class="bi bi-search"></i>
 				</button>

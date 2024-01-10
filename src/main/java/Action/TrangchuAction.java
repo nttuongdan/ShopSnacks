@@ -55,6 +55,36 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 
 	private int soluongsanpham;
 
+	public String getTimkiem() {
+		return timkiem;
+	}
+
+	public void setTimkiem(String timkiem) {
+		this.timkiem = timkiem;
+	}
+
+	String timkiem;
+
+	public Food getFood() {
+		return food;
+	}
+
+	public void setFood(Food food) {
+		this.food = food;
+	}
+
+	Food food;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	int id;
+
 	public String home() {
 		foodlist = new TrangchuDAO().getList();
 
@@ -103,11 +133,17 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 		return "success";
 	}
 
-//	private List<>
-//	
-//	public void cart()
-//	{
-//		
-//	}
+	public String timkiem() {
+		// Thiết lập bộ mã UTF-8 cho chương trình
+//		System.setProperty("file.encoding", "UTF-8");
 
+//		System.out.print(timkiem);
+
+		if (new TrangchuDAO().getFoodByName(timkiem) != null) {
+			food = new TrangchuDAO().getFoodByName(timkiem);
+			id = food.getId();
+			return "success";
+		} else
+			return "khongtimthay";
+	}
 }

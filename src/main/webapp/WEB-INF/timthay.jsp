@@ -23,10 +23,10 @@
 		<jsp:include page="navbar.jsp"></jsp:include>
 
 		<div class="container-fliud">
-			<div class="wrapper row">
+			<div class="wrapper row my-5">
 				<div class="preview col-md-6">
 
-					<div class="preview-pic tab-content">
+					<div class="preview-pic tab-content border border-secondary py-5">
 						<div class="tab-pane active" id="pic-1">
 							<img src="./img/<s:property value='food.hinh'/>"
 								style="width: 400px; max-height: 400px;" />
@@ -50,7 +50,7 @@
 				</div>
 				<div class="details col-md-6">
 					<h3 class="product-title">
-						<s:property value="food.tenmonan" />
+						<s:property value="food.ten" />
 					</h3>
 					<div class="rating">
 						<div class="stars">
@@ -77,10 +77,16 @@
 					</h6>
 					<br>
 					<div class="action">
-						<button class="add-to-cart btn btn-warning" type="button">
-							<i href='ThemGioHangAction?id=<s:property value="id"/>'
-								class="bi bi-bag"></i> Thêm vào vỏ hàng
-						</button>
+						<s:if test="food.trangthai ==1">
+							<a href='ThemGioHangAction?id=<s:property value="id"/>'
+								class="btn btn-warning"> <i class="bi bi-bag"></i> Thêm vào
+								vỏ hàng
+							</a>
+						</s:if>
+						<s:else>
+							<div class="btn btn-outline-danger w-50">Hết hàng</div>
+						</s:else>
+
 						<button class="add-to-cart btn btn-default" type="button">
 							<i class="bi bi-heart"></i> Yêu thích
 						</button>

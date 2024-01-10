@@ -56,6 +56,11 @@
 			<result name="success">/WEB-INF/call.jsp</result>
 		</action>
 
+		<action name="timkiemAction" class="Action.TrangchuAction"
+			method="timkiem">
+			<result name="success">/WEB-INF/timthay.jsp</result>
+			<result name="khongtimthay">/WEB-INF/khongtimthay.jsp</result>
+		</action>
 
 		<action name="login">
 			<interceptor-ref name="authenticatedInterceptor" />
