@@ -17,6 +17,7 @@ import Model.DonHang;
 import Model.DonHangChiTiet;
 import Model.Food;
 import Model.NguoiDung;
+import Model.TaiKhoan;
 
 public class KhachAction extends ActionSupport implements SessionAware {
 
@@ -25,6 +26,7 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> getSession() {
 		return session;
 	}
+	
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -138,6 +140,8 @@ public class KhachAction extends ActionSupport implements SessionAware {
 
 	private List<Food> foodlist;
 
+	private String tendangnhap;
+
 	public Food getFood() {
 		return food;
 	}
@@ -145,6 +149,14 @@ public class KhachAction extends ActionSupport implements SessionAware {
 	public void setFood(Food food) {
 		this.food = food;
 	}
+	public String getTendangnhap() {
+		return tendangnhap;
+	}
+
+	public void setTendangnhap(String tendangnhap) {
+		this.tendangnhap = tendangnhap;
+	}
+	private TaiKhoan taikhoan;
 
 	private Food food;
 
@@ -321,6 +333,7 @@ public class KhachAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+
 	public String ThanhToanGioHang() {
 		// lấy người dùng hiện tại
 		NguoiDung nd = (NguoiDung) session.get("nguoidung");
@@ -344,5 +357,24 @@ public class KhachAction extends ActionSupport implements SessionAware {
 
 		return "thanhtoanthanhcong";
 	}
+	public String showDanhSachDonHangChiTiet() {
+		donhangchitiet = new DonHangChiTietDAO().getDonHangChiTietByID(donhang_id);
+		if (id <= 0) {
+            // Xử lý trường hợp id không hợp lệ
+            return ERROR;
+        }
+
+        try {
+            // Sử dụng DAO để lấy danh sách đơn hàng chi tiết từ nguồn dữ liệu (cơ sở dữ liệu, service, ...)
+            DonHangChiTietDAO donHangChiTietDAO = new DonHangChiTietDAO();
+            donHangChiTietList = donHangChiTietDAO;
+
+            return SUCCESS;
+        } catch (Exception e) {
+            // Xử lý ngoại lệ, ví dụ: log lỗi và chuyển hướng đến trang lỗi
+            e.printStackTrace();
+            return ERROR;
+        }
+    }
 
 }

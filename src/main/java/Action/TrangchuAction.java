@@ -54,6 +54,11 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 		return "success";
 	}
 
+	public String giohang() {
+		
+		return "success";
+	}
+
 	public String blog() {
 		return "success";
 	}
@@ -61,5 +66,17 @@ public class TrangchuAction extends ActionSupport implements SessionAware {
 	public String call() {
 		return "success";
 	}
+	public String SnackMoTa() {
+		return "success";
+	}
+
+
+//	private List<>
+//	
+//	public void cart()
+//	{
+//		
+//	}
+
 
 }

@@ -22,11 +22,11 @@
 						<div
 							class="card pt-5 border border-secondary btn btn-outline-light">
 							<a href='SnackMoTaAction?id=<s:property value="id"/>'
-								class="text-decoration-none"> <img
+								class="text-decoration-none"> <img 
 								src='./img/<s:property value="hinh"/>' class="card-img-top"
 								alt="snack hình ảnh" style="width: 100%; height: 300px;">
 								<div class="card-body text-left mt-2">
-									<p class="card-text text-dark">
+									<p class="card-text text-dark" >
 										<s:property value="ten" />
 									</p>
 									<p class="fw-bold text-dark">
